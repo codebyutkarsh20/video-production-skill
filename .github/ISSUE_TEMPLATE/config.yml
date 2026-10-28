@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Installation guide
+    url: https://github.com/codebyutkarsh20/video-production-skill/blob/main/INSTALL.md
+    about: Standard CLI, direct download and agent installation instructions.

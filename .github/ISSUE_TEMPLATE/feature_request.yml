@@ -1,0 +1,21 @@
+name: Feature or adapter request
+description: Suggest a production route, provider, template or workflow improvement.
+title: '[Feature] '
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem and example request
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Proposed behavior and concrete output
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies and validation
+      description: Include provider access/cost, official references and how to demonstrate success or failure.

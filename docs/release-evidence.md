@@ -1,6 +1,6 @@
 # Release evidence — 0.1.0 local candidate
 
-The owner approved implementation on 29 October 2026. This is a local release candidate for owner review; no public repository or external provider has been activated.
+The owner approved implementation and subsequently authorized public GitHub publication on 29 October 2026. The original local verification receipt follows; public installation and CI evidence are recorded separately. No external video-generation provider has been activated.
 
 ## Executed checks
 
@@ -31,4 +31,4 @@ An independent agent consumed the skill and rendered a **3.000-second, 640×360,
 - The final review video replaces the earlier system voice with Piper/LJ Speech narration, with primary-source provenance recorded. The source archive does not bundle either voice model or either generated narration file.
 - The helper was exercised on macOS/Python 3.12 with installed FFmpeg. Other OS/runtime combinations are not accepted by this receipt.
 - No paid/generated-video provider adapter has been integrated or tested. Complex 3D, exact lip sync and long-form continuity are not claimed as tested capabilities.
-- The package contains original public instructions/code and fictional examples. A public upload, announcement or repository creation still awaits the owner's publishing instruction.
+- The package contains original public instructions/code and fictional examples. Public repository/release publication is authorized; no separate outreach or external provider activation follows from that instruction.

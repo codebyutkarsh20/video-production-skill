@@ -1,8 +1,34 @@
 # Video Production
 
+[![CI](https://github.com/codebyutkarsh20/video-production-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/codebyutkarsh20/video-production-skill/actions/workflows/ci.yml)
+
 An agent skill for turning briefs, interfaces and footage into reviewable videos. It covers planning, production, revision and repair, with clear output contracts and honest support levels.
 
-**Version 0.1.0 — local release candidate.** Publication awaits owner review of the preview. This is an agent workflow and local helper package, not a new video-generation model.
+**Version 0.1.0 — early release.** Use it with a skill-capable coding agent and the production tools available in your environment. Original code/instructions are MIT licensed; contributions are welcome.
+
+## Quick install
+
+With Node.js 22.20 or newer:
+
+```sh
+npx skills add codebyutkarsh20/video-production-skill --skill video-production
+```
+
+Select your agent when prompted. Add `--global` for user-wide installation. See [INSTALL.md](INSTALL.md) for Codex, Claude Code and Cursor examples, fixed-version installation, direct downloads, verification and updates.
+
+**Ask your coding agent:**
+
+> Install the video-production skill from https://github.com/codebyutkarsh20/video-production-skill/tree/main/skills/video-production for this project, check its available tools, then help me make a short preview from my source material.
+
+For an agent-readable entry index, use [llms.txt](llms.txt). It points to the actual skill and conditional reference files; agents do not need to ingest the entire repository.
+
+## See an example
+
+[![Original 55-second narrated motion-graphics example](docs/assets/preview.jpg)](https://github.com/codebyutkarsh20/video-production-skill/releases/download/v0.1.0/video-production-preview.mp4)
+
+[Watch/download the 55-second showcase](https://github.com/codebyutkarsh20/video-production-skill/releases/download/v0.1.0/video-production-preview.mp4) · [Release downloads](https://github.com/codebyutkarsh20/video-production-skill/releases) · [Report a bug or suggest a feature](https://github.com/codebyutkarsh20/video-production-skill/issues/new/choose)
+
+The showcase uses original graphics and local Piper narration. Source and reproduction steps are included. It demonstrates one production style; it is not a claim that all providers or video styles have been tested.
 
 ## What you can ask
 
@@ -15,7 +41,7 @@ An agent skill for turning briefs, interfaces and footage into reviewable videos
 
 The skill reuses information you supplied, checks actual tools and produces the artifact you requested. Brief-only stays brief-only. A requested preview ends at your review checkpoint. A directly authorized full build does not automatically acquire extra approval gates.
 
-## Install
+## Skill format and manual installation
 
 Copy the `skills/video-production` directory into your agent's skills directory. For Codex, that is usually `~/.codex/skills/video-production`. For agents supporting the shared convention, use `~/.agents/skills/video-production`. Install in one location your agent discovers; avoid duplicate copies.
 
@@ -89,6 +115,8 @@ python3 scripts/package_release.py
 FFmpeg integration tests require FFmpeg/ffprobe and libx264/AAC. If dependencies are unavailable, integration tests are explicitly skipped; do not count skipped tests as passing media verification.
 
 See [release evidence](docs/release-evidence.md), [contribution guidance](CONTRIBUTING.md), [asset credits](ASSET-CREDITS.md) and [changes](CHANGELOG.md). Add a route, adapter, template or regression case with a reproducible example and truthful limits. The project is designed for broad video work across industries; it does not promise to solve every model limitation or every industry's business problem.
+
+Good contribution areas: a tested generation-provider adapter, another licensed/local narration path, accessible video templates, cross-platform verification, caption alignment and targeted repair examples. Open an issue to discuss a substantial change, or fork the repository and submit a focused pull request. CI runs tests and builds both distribution archives for pull requests.
 
 ## License
 

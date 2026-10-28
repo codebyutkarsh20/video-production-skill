@@ -23,6 +23,11 @@ class ReleaseTests(unittest.TestCase):
                 p=root/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text('public content')
             (root/'scripts').mkdir(exist_ok=True)
             (root/'scripts/package_release.py').write_text('print("release")')
+            skill=root/'skills/video-production'
+            skill.mkdir(parents=True,exist_ok=True)
+            (skill/'SKILL.md').write_text('---\nname: video-production\ndescription: Video workflow\n---\n')
+            (skill/'scripts').mkdir()
+            (skill/'scripts/video_tools.py').write_text('print("helper")')
             (root/'artifacts').mkdir();(root/'artifacts/private.txt').write_text('private')
             (root/'.env').write_text('SECRET=private')
             result=release.build(root)
@@ -30,6 +35,11 @@ class ReleaseTests(unittest.TestCase):
                 names=z.namelist()
                 self.assertIn('video-production/scripts/package_release.py',names)
                 self.assertFalse(any('artifacts/' in x or '.env' in x for x in names))
+            with zipfile.ZipFile(result['skill_archive']) as z:
+                self.assertIn('video-production/SKILL.md',z.namelist())
+                self.assertIn('video-production/LICENSE',z.namelist())
+                self.assertIn('video-production/scripts/video_tools.py',z.namelist())
+                self.assertFalse(any('/tests/' in x or '/examples/' in x for x in z.namelist()))
 
 
 try:
