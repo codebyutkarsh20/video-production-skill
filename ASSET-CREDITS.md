@@ -1,0 +1,11 @@
+# Assets and dependencies
+
+- Skill instructions, helper code, showcase illustrations, fictional browser interface and recording scripts are original work for this project under MIT.
+- The showcase's quiet ambient bed is generated from original mathematical sine-wave composition in `examples/showcase/render.py`; no stock track is used.
+- Names, company and contact details in examples are fictional. `example.com` is used for fictional email addresses. No customer policy, private record or external service evidence is included.
+- The final review showcase narration is synthesized locally with [Piper](https://github.com/OHF-Voice/piper1-gpl) 1.8.0 and `en_US-ljspeech-high`, a female US-English model. The engine is GPL-3.0 and remains a separately installed dependency. The [model repository](https://huggingface.co/rhasspy/piper-voices/blob/main/en/en_US/ljspeech/high/MODEL_CARD) is labeled MIT; its model card identifies the [LJ Speech dataset](https://keithito.com/LJ-Speech-Dataset/) as public domain. Model training credits point to Bryce Beattie; dataset recordings are by Linda Johnson/LibriVox with alignment by Keith Ito. No voice model, training recording or engine binary is redistributed in this source archive.
+- Checked model SHA-256: `5d4f08ba6a2a48c44592eed3ce56bf85e9de3dd4e20df90541ae68a8310c029a`. Configuration SHA-256: `7e1f4634af596d83cca997fb7a931ba80b70f8a316a2655ee69c55365e0ace14`.
+- An earlier internal preview used macOS system speech. It is excluded from the distributable and is not the final review video. The public example defaults to Piper rather than assuming system-voice distribution rights. Optional explicit use of a system voice is subject to that voice's terms.
+- Arial/Georgia or DejaVu are discovered on the rendering machine. No font binaries are included. Font availability changes layout and requires checking the result.
+- FFmpeg, Python, Pillow, Node.js and Playwright retain their respective licenses. This repository does not vendor them. Generated/distributed media and provider-specific services may have separate requirements.
+- The user's original video-builder document was used as task background. Its wording is not copied into this public skill package.

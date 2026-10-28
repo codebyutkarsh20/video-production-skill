@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Production"
+  short_description: "Plan, produce, review and repair videos"
+  default_prompt: "Use $video-production to turn my brief into a video, starting with a representative preview."

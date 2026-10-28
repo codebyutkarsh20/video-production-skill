@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Video Production — Public Skill Design</title>
+<style>
+:root{color-scheme:light;--ink:#192a33;--muted:#52616a;--line:#d7e0e3;--accent:#17655d;--soft:#edf5f2}
+*{box-sizing:border-box}body{margin:0;background:#f7f9f8;color:var(--ink);font:16px/1.6 system-ui,-apple-system,sans-serif}main{max-width:1000px;margin:auto;padding:48px 36px 72px}h1{font-size:40px;line-height:1.15;margin:10px 0 20px}h2{font-size:24px;line-height:1.3;margin:34px 0 12px}h3{font-size:18px;margin:20px 0 8px}p{margin:10px 0}a{color:var(--accent)}.eyebrow{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:700}.lead{font-size:21px;max-width:850px}.notice{padding:18px 22px;background:var(--soft);border-left:4px solid var(--accent);margin:24px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{padding:18px 22px;background:white;border:1px solid var(--line);border-radius:12px}.card h3{margin-top:0}table{border-collapse:collapse;width:100%;background:white}td,th{text-align:left;vertical-align:top;padding:13px;border:1px solid var(--line)}th{background:var(--soft)}ul,ol{padding-left:23px}li{margin:7px 0}.muted{color:var(--muted)}code{font-size:.9em;background:#eaf0ee;padding:2px 4px;overflow-wrap:anywhere}.flow{font-size:19px;font-weight:600;padding:18px 0;color:var(--accent)}footer{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}@media(max-width:650px){main{padding:26px 18px}.grid{grid-template-columns:1fr}h1{font-size:32px}td,th{padding:8px;font-size:14px}}@media print{@page{size:A4;margin:16mm}body{background:white;font-size:10pt}main{padding:0;max-width:none}h1{font-size:28pt}h2{font-size:17pt;break-after:avoid}h3{break-after:avoid}.lead{font-size:13pt}.card,tr,.notice{break-inside:avoid}.grid{display:block}.card{margin:12px 0}.flow{font-size:12pt}a{color:inherit}footer{font-size:9pt}}
+</style>
+</head>
+<body><main>
+<p class="eyebrow">Design for review · 29 October 2026</p>
+<h1>Video Production</h1>
+<p class="lead">An open, extensible agent skill that turns a brief and available assets into a reviewable video, with clear outputs, measured checks and practical recovery when production fails.</p>
+<div class="notice"><strong>Agreed direction:</strong> broad video production from the first version, across industries, with clearly labeled support levels. The owner approved this design. A local version 0.1.0 candidate, helpers and original examples have been implemented; actual checks and remaining limits are recorded in docs/release-evidence.md.</div>
+
+<h2>1. What the skill promises</h2>
+<p>Help an agent understand the requested outcome, select a feasible production route, create the requested deliverables, validate them and explain remaining limits. It should work for product walkthroughs, training, education, marketing, presentations, social clips, case studies and narrative videos.</p>
+<p>The reusable core handles production problems common to these fields. Industry knowledge comes from the user's sources and optional domain packs. It does not claim to solve every industry's business problems, guarantee cinematic quality or remove limitations of external generation models.</p>
+<p><strong>Public positioning:</strong> “From brief to reviewed video: plan, produce, check and revise with the tools you have.”</p>
+
+<h2>2. A short entry point with useful modes</h2>
+<div class="grid">
+<section class="card"><h3>Brief</h3><p>Return a concise, self-contained production brief when the user asks for a prompt or plan. Read supplied material first. Ask only consequential unanswered questions; use declared defaults for routine choices.</p></section>
+<section class="card"><h3>Produce</h3><p>Create actual media when rendering tools are available. For a substantial new video, propose a representative preview before the full render. Honor an explicit full-build request or an already approved style without reopening decisions.</p></section>
+<section class="card"><h3>Revise</h3><p>Translate timestamped feedback into scene edits. Preserve approved scenes, narration and assets. Rebuild only changed segments and their dependent captions, transitions or mixes.</p></section>
+<section class="card"><h3>Diagnose and repair</h3><p>Inspect a failed job or existing output, find the likely cause, perform bounded repairs and verify the result. Preserve usable work and report what could not be fixed.</p></section>
+</div>
+<p class="flow">Brief → capability check → representative preview → requested production → validation → delivery and revision</p>
+<p>The workflow scales to the request. A five-second title edit does not trigger an interview or a minute-long preview. A requested preview ends at the agreed review checkpoint. Missing tools lead to an explicit blocker or an agreed alternative, never a claimed render that does not exist.</p>
+
+<h2>3. Broad routes, evidence-based support</h2>
+<table><thead><tr><th>Production route</th><th>Scope</th><th>Initial implementation target</th></tr></thead><tbody>
+<tr><td>Screen and product</td><td>Actual interfaces, recorded workflows, zooms, callouts and narration.</td><td>Recording procedure plus composition and output checks; verify using a fictional public example.</td></tr>
+<tr><td>Motion and explanation</td><td>Text, diagrams, charts, presentations and animated illustrations.</td><td>One executable local composition path with a complete rendered example.</td></tr>
+<tr><td>Existing footage</td><td>Cutting, sequencing, voiceover, captions, music and aspect-ratio versions.</td><td>One executable local editing/export path with a complete rendered example.</td></tr>
+<tr><td>Generated scenes and hybrid work</td><td>Text/image-to-video, generated inserts, avatars and mixed footage.</td><td>Provider-neutral shot planning and extension contract; actual generation remains provider-dependent until integrated and tested.</td></tr>
+<tr><td>Advanced specialist work</td><td>Complex character consistency, detailed 3D, precise lip sync, long-form continuity and specialist delivery.</td><td>Explicit experimental or unsupported status until a contributor supplies a working adapter and evidence.</td></tr>
+</tbody></table>
+<p>Each route records two independent things: <strong>maturity</strong> (tested, experimental, planned or unsupported) and <strong>availability here</strong> (ready, missing dependency, missing authorized access or blocked). A provider-dependent route can be tested elsewhere and still unavailable on the user's machine. A documented workflow is not a tested integration.</p>
+
+<h2>4. Production problems to address</h2>
+<table><thead><tr><th>Problem</th><th>Concrete response</th></tr></thead><tbody>
+<tr><td>Vague briefs and endless questions</td><td>Extract known requirements, surface only decisions that change the output, retain a concise accepted brief.</td></tr>
+<tr><td>Wrong tool or missing access</td><td>Check required capabilities before promising a render; disclose licensed/paid dependencies and meaningful fallback changes.</td></tr>
+<tr><td>Weak story or inconsistent visuals</td><td>Use a scene plan and shared style/character references, then assess a representative moving preview.</td></tr>
+<tr><td>Robotic narration, incorrect names, caption drift</td><td>Check a voice sample, keep a pronunciation map, measure audio and align captions to actual speech.</td></tr>
+<tr><td>Unreadable screens and poor crops</td><td>Inspect the target aspect ratio and output size, preserve active controls and check caption placement.</td></tr>
+<tr><td>Crashes, missing assets and repeated expense</td><td>Save scene/job state, track provider job IDs, cache reusable results and resume only verified work. Query uncertain paid jobs before submitting again.</td></tr>
+<tr><td>Export defects</td><td>Check streams, duration, resolution, decoding, audio and subtitle bounds; flag unexpected silence or black frames for review.</td></tr>
+<tr><td>Unsupported claims and misleading results</td><td>Keep facts traceable, distinguish actual footage from illustration, retain source and asset-rights records.</td></tr>
+<tr><td>Expensive revisions</td><td>Map feedback to scene IDs and dependencies; regenerate only what the change invalidates.</td></tr>
+</tbody></table>
+<p>Automatic checks establish technical properties, not beauty or factual correctness. Visual and listening review remain separate, and their actual scope must be reported. Model defects such as unstable faces or inaccurate lip sync may require bounded regeneration, a different approved method or an explicit unresolved result.</p>
+
+<h2>5. Clear outputs and reusable state</h2>
+<p>Use one project manifest as the canonical machine-readable record: requirements, scene IDs, assets/provenance, selected tools, timings, cost limits, generation job IDs, review decisions and validation evidence. Human-readable reports are derived from that record rather than competing copies.</p>
+<ul>
+<li><strong>Brief mode:</strong> concise brief and identified dependencies; no promised media file.</li>
+<li><strong>Preview mode:</strong> playable representative preview, script, captions when requested, and short quality/limitation notes.</li>
+<li><strong>Production mode:</strong> requested master/variants, requested captions, editable source, asset manifest and validation report.</li>
+<li><strong>Repair mode:</strong> repaired output when possible, evidence of the repair and clearly identified remaining problems.</li>
+</ul>
+<p>Completion requires the requested artifact to exist and the stated checks to have run. Distinguish “rendered,” “technically checked,” “visually reviewed” and “user approved.” No opaque overall score should imply that all four happened.</p>
+
+<h2>6. Public package and contribution model</h2>
+<p>Use the open Agent Skills structure: a short <code>SKILL.md</code>, focused route references, executable helpers where they improve reliability, and examples. Keep host-specific integrations optional. Existing provider-maintained skills can supply tool details; this skill adds production coordination, consistent deliverables, review and recovery.</p>
+<p>The proposed public repository also contains installation instructions, a support matrix, contribution guide, changelog, regression scenarios, asset credits and an MIT license for original code/instructions. Third-party tools and media retain their own licenses. The supplied builder document informs the design; do not redistribute its text without established permission.</p>
+<p>Contributors may add a rendering route, provider adapter, industry pack, template or regression case. Each change must include a minimal example, documented dependencies and limits, and meaningful validation. Provider adapters declare supported inputs/outputs, duration/aspect limits, credentials interface, cost behavior, job polling, cancellation and retry semantics. Do not bundle secrets or rely on one user's local paths.</p>
+<p>Prepare locally for publication. A public repository, upload or announcement requires a separate explicit publishing instruction.</p>
+
+<h2>7. First release and acceptance</h2>
+<ol>
+<li>Test realistic baseline requests: brief-only, sample-first, direct full render, missing provider, failed render, uncertain paid job and an existing-video revision.</li>
+<li>Build the concise skill, shared manifest, capability check, validation helper and focused route references.</li>
+<li>Produce local examples covering a workflow recording, animated explanation and existing-footage edit. Use fictional or appropriately licensed assets.</li>
+<li>Run independent agent evaluations with the skill and compare observed behavior. Record failures and make targeted fixes.</li>
+<li>Validate package structure, links, actual example outputs, portability claims and secret-free distributable contents.</li>
+<li>Provide the local public-ready package and a release report. Mark external providers untested until genuine integration evidence exists.</li>
+</ol>
+<p><strong>Publication bar:</strong> a person can understand supported routes, install the skill, reproduce at least one documented example, locate clear outputs and submit a useful improvement. No support claim exceeds its recorded evidence.</p>
+
+<h2>8. Decisions proposed for approval</h2>
+<p>Working name: <strong>video-production</strong>. Broad production routes from day one; one tested local path before release; provider integrations added through a documented contract. Default to a representative preview for substantial new videos, with timing adapted to the request. Use a portable Agent Skills package, an original-code MIT license and public contribution guidance. Keep private GMC data, branding and machine paths out of the distributable.</p>
+
+<h2>Primary references checked</h2>
+<ul>
+<li><a href="https://agentskills.io/specification">Agent Skills specification</a> — package structure, metadata and progressive disclosure.</li>
+<li><a href="https://www.remotion.dev/docs/ai/skills">Remotion Agent Skills</a> — existing provider-maintained creation, composition, rendering and caption guidance to build on.</li>
+<li><a href="https://ffmpeg.org/ffprobe.html">FFprobe documentation</a> — machine-readable media inspection.</li>
+<li><a href="https://ffmpeg.org/ffmpeg-filters.html">FFmpeg filters documentation</a> — editing/audio operations and diagnostic filters; their use does not establish subjective quality.</li>
+</ul>
+<footer>Canonical owner-approved design. Current status: local release candidate; owner preview review and publication remain separate.</footer>
+</main></body></html>
