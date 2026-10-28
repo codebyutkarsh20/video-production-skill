@@ -53,7 +53,7 @@ Common locations:
 |---|---|---|
 | Codex/shared Agent Skills | `.agents/skills/video-production` | `~/.codex/skills/video-production` or the host's shared discovery path |
 | Claude Code | `.claude/skills/video-production` | `~/.claude/skills/video-production` |
-| Cursor | `.cursor/skills/video-production` | Use the host-supported scope or Skills CLI |
+| Cursor | `.agents/skills/video-production` with the tested Skills CLI | Use the host-supported scope or Skills CLI |
 
 Choose one canonical installation per scope. Check existing files before copying; avoid nested `video-production/video-production` folders. Refer to your agent's current documentation if its discovery paths differ.
 

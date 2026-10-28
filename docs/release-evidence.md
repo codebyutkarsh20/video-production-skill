@@ -32,3 +32,13 @@ An independent agent consumed the skill and rendered a **3.000-second, 640×360,
 - The helper was exercised on macOS/Python 3.12 with installed FFmpeg. Other OS/runtime combinations are not accepted by this receipt.
 - No paid/generated-video provider adapter has been integrated or tested. Complex 3D, exact lip sync and long-form continuity are not claimed as tested capabilities.
 - The package contains original public instructions/code and fictional examples. Public repository/release publication is authorized; no separate outreach or external provider activation follows from that instruction.
+
+## Public distribution checks · 29 October 2026
+
+The repository is public at https://github.com/codebyutkarsh20/video-production-skill with `main` as default, Issues and Discussions enabled, and contributor templates. Anonymous HTTP reads of repository metadata, the raw skill entry and the agent-readable index returned 200.
+
+A fresh isolated project installed the complete skill from GitHub using Skills CLI **1.7.4**, Node **24.19.0**, and explicit Codex, Claude Code and Cursor selections. All installed skill files matched source bytes. The CLI selected the shared `.agents/skills` location for Codex/Cursor and a Claude Code symlink. The installed helper's `doctor` command completed successfully. This verifies distribution and file placement; it does not claim full native application execution for all hosts.
+
+The Codex built-in GitHub skill installer also downloaded `skills/video-production` into a separate temporary destination; the entry, references, license and helper were present and the installed `doctor` completed. Both tests preserved the owner's existing installation. The source package now also produces a standalone nine-file skill ZIP and checksums.
+
+Local tests still pass **31/31**, including the standalone archive's complete layout and exclusion of contributor/test material. GitHub-hosted CI runs separately on Ubuntu/Python 3.10 and 3.12; use the repository's Actions page for its actual current result.
