@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Added proactive creative recommendations, missing-input discovery and scoped improvement suggestions.
+- Added visual/audio capability discovery, relevant tool-connection recommendations and voice-audition guidance.
+- Preserved honest availability claims, user scope and paid/external-use boundaries; no new provider adapter is bundled.
+
 ## 0.1.0 — 2026-10-29 — first public release
 
 - Added brief, preview, production and repair workflows with progressive route references.

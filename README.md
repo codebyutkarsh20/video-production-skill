@@ -41,6 +41,14 @@ The showcase uses original graphics and local Piper narration. Source and reprod
 
 The skill reuses information you supplied, checks actual tools and produces the artifact you requested. Brief-only stays brief-only. A requested preview ends at your review checkpoint. A directly authorized full build does not automatically acquire extra approval gates.
 
+## Proactive creative help
+
+The skill recommends a concrete creative direction, identifies missing assets and suggests relevant improvements to story, visuals and sound. It checks available tools first, then explains which optional connections or local tools could improve your result and what setup, cost or permissions they require.
+
+Ask: “Help me choose a visual style and voice. Check what I already have, suggest the most useful additions, and start the work that is possible now.”
+
+These are production instructions for the agent, not new bundled integrations. Voice auditions, image generation and specialist effects depend on tools actually available in your environment.
+
 ## Skill format and manual installation
 
 Copy the `skills/video-production` directory into your agent's skills directory. For Codex, that is usually `~/.codex/skills/video-production`. For agents supporting the shared convention, use `~/.agents/skills/video-production`. Install in one location your agent discovers; avoid duplicate copies.

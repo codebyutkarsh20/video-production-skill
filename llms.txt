@@ -8,6 +8,7 @@
 - [Repository and support matrix](https://github.com/codebyutkarsh20/video-production-skill): Scope, requirements and examples.
 
 ## Conditional references
+- [Creative direction and capability discovery](https://raw.githubusercontent.com/codebyutkarsh20/video-production-skill/main/skills/video-production/references/creative-direction.md): Visual style, voice auditions, missing assets and useful tool connections.
 - [Project/output contract](https://raw.githubusercontent.com/codebyutkarsh20/video-production-skill/main/skills/video-production/references/project-contract.md): Canonical manifest and actual deliverables.
 - [Screen workflows](https://raw.githubusercontent.com/codebyutkarsh20/video-production-skill/main/skills/video-production/references/screen-workflows.md): Actual app recordings.
 - [Local composition](https://raw.githubusercontent.com/codebyutkarsh20/video-production-skill/main/skills/video-production/references/local-production.md): Motion graphics and existing footage.

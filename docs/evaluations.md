@@ -17,3 +17,12 @@ The with-skill runs produced the requested brief only, preserved the preview bou
 | Direct local build from a supplied four-second test-pattern clip | Produced a three-second MP4 with retained audio, source script and technical checks; explicitly left listening review unperformed |
 
 There were three baseline controls and five with-skill smoke cases. They are selected cases with one execution each, not replicated model benchmarks. Two controls already handled the risky decision correctly. No universal reliability percentage or causal improvement claim follows from these results.
+
+
+## Proactive producer revision — 2026-10-29
+
+Read-only independent baseline probe used the existing 0.1.0 skill with a vague 50-second HR launch brief, a logo, browser capture/FFmpeg, and no configured speech engine. It proposed a useful story, but supplied only generic voice direction and no concrete local-voice setup route. The evaluator identified missing explicit guidance for creative alternatives, capability discovery, voice auditions and handling silent interim work. This is a gap probe, not evidence the baseline always fails.
+
+A fresh independent probe with the revised skill recommended a concrete problem/action/payoff story, explained laptop capture/graphics/editing versus optional external visuals, offered local speech/service/human recording routes, and retained the narrated master as the goal. A separate storyboard-only scenario returned three scenes without installations or generation. Review exposed ambiguity around preview length and audition checkpoints; wording was clarified to keep excerpts shorter than the master and avoid an automatic audition approval gate. Those final wording clarifications were inspected, not independently rerun.
+
+These are single-run qualitative probes, not replicated comparisons or evidence of provider/audio quality. No new provider was connected, no paid call made, and no new video generated for this instruction revision. All 31 existing tests passed with no skips; skill validation, diff whitespace checks, distribution building and inclusion of the new reference in both archives passed.
