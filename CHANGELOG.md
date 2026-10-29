@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.2.0 — 2026-10-29 — proactive production guidance
 
 - Added proactive creative recommendations, missing-input discovery and scoped improvement suggestions.
 - Added visual/audio capability discovery, relevant tool-connection recommendations and voice-audition guidance.

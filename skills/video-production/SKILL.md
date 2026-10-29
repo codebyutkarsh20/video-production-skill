@@ -3,7 +3,7 @@ name: video-production
 description: Use when a user requests a video brief, product walkthrough, explainer, narrated edit, generated video, captioned cutdown, or repair of an existing video or failed render.
 license: MIT
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
 # Video Production

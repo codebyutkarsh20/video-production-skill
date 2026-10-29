@@ -13,7 +13,7 @@ SUFFIXES={'.md','.py','.yaml','.yml','.html','.cjs','.txt','.json'}
 
 def build(root=ROOT):
     root=Path(root).resolve();out=root/'dist';out.mkdir(exist_ok=True)
-    dest=out/'video-production-0.1.0.zip';entries=[]
+    dest=out/'video-production-0.2.0.zip';entries=[]
     for name in FILES:
         p=root/name
         if not p.is_file(): raise ValueError(f'Missing release input: {name}')
@@ -40,7 +40,7 @@ def build(root=ROOT):
     skill_root=root/'skills/video-production'
     if not (skill_root/'SKILL.md').is_file():raise ValueError('Missing installable SKILL.md')
     skill_entries=[(p,'video-production/'+str(p.relative_to(skill_root))) for p in entries if p.is_relative_to(skill_root)]
-    skill_dest=out/'video-production-skill-0.1.0.zip'
+    skill_dest=out/'video-production-skill-0.2.0.zip'
     skill_digest=write_archive(skill_dest,skill_entries)
     return {'archive':str(dest),'files':len(entries),'sha256':digest,
             'skill_archive':str(skill_dest),'skill_files':len(skill_entries),'skill_sha256':skill_digest}

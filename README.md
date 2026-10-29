@@ -4,7 +4,7 @@
 
 An agent skill for turning briefs, interfaces and footage into reviewable videos. It covers planning, production, revision and repair, with clear output contracts and honest support levels.
 
-**Version 0.1.0 — early release.** Use it with a skill-capable coding agent and the production tools available in your environment. Original code/instructions are MIT licensed; contributions are welcome.
+**Version 0.2.0 — proactive production guidance.** Use it with a skill-capable coding agent and the production tools available in your environment. Original code/instructions are MIT licensed; contributions are welcome.
 
 ## Quick install
 

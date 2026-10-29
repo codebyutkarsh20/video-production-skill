@@ -1,6 +1,16 @@
-# Release evidence — 0.1.0 local candidate
+# Release evidence
 
 The owner approved implementation and subsequently authorized public GitHub publication on 29 October 2026. The original local verification receipt follows; public installation and CI evidence are recorded separately. No external video-generation provider has been activated.
+
+## v0.2.0 publication candidate — 29 October 2026
+
+The owner authorized pushing the proactive-production update and publishing a new public release. This version adds creative direction and missing-input discovery, visual/audio tool recommendations and voice-audition guidance. It adds no provider integration, bundled voice engine or new generated showcase; the v0.1.0 sample remains an illustration of the existing rendering route.
+
+Local release checks: all **31 tests passed with no skips**, including updated assertions for the v0.2.0 archive names and inclusion of the creative-direction reference. Skill format validation and whitespace checks passed. Package/download/installation checks and hosted CI results belong to their actual execution receipts; local success does not imply public availability. Bounded independent instruction probes and their limits are recorded in `docs/evaluations.md`.
+
+Both distribution archives use v0.2.0 names and contain the updated skill metadata and references. INSTALL.md points to the versioned v0.2.0 skill source and standalone download. Existing v0.1.0 release history and sample links are preserved.
+
+## v0.1.0 verification record
 
 ## Executed checks
 

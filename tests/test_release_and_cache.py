@@ -28,9 +28,13 @@ class ReleaseTests(unittest.TestCase):
             (skill/'SKILL.md').write_text('---\nname: video-production\ndescription: Video workflow\n---\n')
             (skill/'scripts').mkdir()
             (skill/'scripts/video_tools.py').write_text('print("helper")')
+            (skill/'references').mkdir()
+            (skill/'references/creative-direction.md').write_text('Creative direction and capability discovery')
             (root/'artifacts').mkdir();(root/'artifacts/private.txt').write_text('private')
             (root/'.env').write_text('SECRET=private')
             result=release.build(root)
+            self.assertEqual(Path(result['archive']).name,'video-production-0.2.0.zip')
+            self.assertEqual(Path(result['skill_archive']).name,'video-production-skill-0.2.0.zip')
             with zipfile.ZipFile(result['archive']) as z:
                 names=z.namelist()
                 self.assertIn('video-production/scripts/package_release.py',names)
@@ -39,6 +43,7 @@ class ReleaseTests(unittest.TestCase):
                 self.assertIn('video-production/SKILL.md',z.namelist())
                 self.assertIn('video-production/LICENSE',z.namelist())
                 self.assertIn('video-production/scripts/video_tools.py',z.namelist())
+                self.assertEqual(z.read('video-production/references/creative-direction.md'),b'Creative direction and capability discovery')
                 self.assertFalse(any('/tests/' in x or '/examples/' in x for x in z.namelist()))
 
 
