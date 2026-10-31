@@ -4,6 +4,8 @@ The owner approved implementation and subsequently authorized public GitHub publ
 
 ## v0.3.0 working evidence — 31 October 2026 (not released)
 
+**Agent contribution instruction update — local only:** the installed entry point now routes concrete findings to an agent-led upstream issue/PR workflow with scoped user authorization. A baseline and a fresh revised-skill evaluator exercised read-only decisions; see [the scenario evidence](evaluations.md#agent-led-contribution-revision--31-october-2026). No GitHub submission or cross-harness integration was executed. The local unittest run after this instruction change ran 105 tests: 104 passed and the Playwright/Chromium cursor test was skipped. Skill format validation passed. Rendering/narration code and cache keys were unchanged.
+
 Recorded on macOS with Python 3.14, FFmpeg 7.1.1, Node 22.18 and uv 0.7. Nothing here has been published, tagged or run in hosted CI. No provider was called and nothing was spent.
 
 **Automated:** `python3 -m unittest discover -s tests -v` ran **105 tests with 1 skipped** (the Playwright cursor test, which needs Playwright and Chromium). With Playwright available, all 105 passed with no skips. The extracted source archive passed with the same 1 skip and rebuilt both archives.

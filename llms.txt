@@ -8,6 +8,7 @@
 - [Repository and support matrix](https://github.com/codebyutkarsh20/video-production-skill): Scope, requirements and examples.
 
 ## Conditional references
+- [Agent-led upstream feedback](https://raw.githubusercontent.com/codebyutkarsh20/video-production-skill/main/skills/video-production/references/upstream-feedback.md): Prepare sanitized issues or tested PRs from concrete findings; submit through available host tools only with the user's scoped authorization.
 - [Creative direction and capability discovery](https://raw.githubusercontent.com/codebyutkarsh20/video-production-skill/main/skills/video-production/references/creative-direction.md): Visual style, voice auditions, missing assets and useful tool connections.
 - [Project/output contract](https://raw.githubusercontent.com/codebyutkarsh20/video-production-skill/main/skills/video-production/references/project-contract.md): Canonical manifest and actual deliverables.
 - [Footage editing](https://raw.githubusercontent.com/codebyutkarsh20/video-production-skill/main/skills/video-production/references/footage-editing.md): Step-by-step cuts from recorded footage with local transcription, captions, reframing and checks.

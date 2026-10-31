@@ -50,6 +50,10 @@ Ask: “Help me choose a visual style and voice. Check what I already have, sugg
 
 These are production instructions for the agent, not new bundled integrations. Voice auditions, image generation and specialist effects depend on tools actually available in your environment.
 
+## Agent-led feedback and contributions
+
+When video work reveals a reproducible skill problem or useful improvement, the installed skill instructs the agent to investigate, check for existing reports, and prepare a sanitized issue or focused, tested PR. The user reviews the proposed content and authorizes posting from their account; the agent handles the available GitHub tools. Missing authentication or host support leaves a local draft. This works through agent instructions, with no bundled telemetry, background reporting or connection to the maintainer's chat. See the [agent contribution workflow](skills/video-production/references/upstream-feedback.md).
+
 ## Skill format and manual installation
 
 Copy the `skills/video-production` directory into your agent's skills directory. For Codex, that is usually `~/.codex/skills/video-production`. For agents supporting the shared convention, use `~/.agents/skills/video-production`. Install in one location your agent discovers; avoid duplicate copies.

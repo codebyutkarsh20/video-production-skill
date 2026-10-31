@@ -5,3 +5,5 @@
 Inputs are not bundled. Use your own licensed clips or a clip from an openly licensed film such as *Tears of Steel* (CC BY 3.0, Blender Foundation), and record which file you used.
 
 `trigger_phrases` lists requests that should and should not start the skill, to measure the description.
+
+`upstream-feedback-cases.json` separately exercises agent contribution decisions: proactive preparation, authorization, private evidence, missing host support, focused PRs and duplicate/uncertain writes. These are read-only scenario probes, not real GitHub integration tests. See `docs/evaluations.md` for the executions and limits.

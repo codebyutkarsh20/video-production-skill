@@ -12,6 +12,7 @@
 
 **Added**
 
+- Agent/harness contribution instructions: discover concrete feedback during video work, prepare sanitized issues or tested PRs, and submit through available GitHub tools with the external user's scoped authorization. No telemetry or background notification service is bundled.
 - `verify --qc`: black and frozen picture, silence, loudness, true peak, picture coverage and caption limits. A failing check exits 1.
 - Footage reading: `transcribe.py` (local word timings), `pack`, `shots`, `timeline`, `cuts`, `captions`, `review` and `speech-check`.
 - Finishing in `compose`: narration or scene audio, looped ducked music, two-pass loudness and burned captions in three styles, with a warning when a burned cue is likely to run past two lines.

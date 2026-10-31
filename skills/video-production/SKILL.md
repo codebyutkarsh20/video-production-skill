@@ -57,6 +57,10 @@ Report four distinct states: **rendered**, **technically checked**, **visually/l
 
 Deliver the requested media, requested captions/variants, editable source and concise validation/limitation notes. Provide playable media inline when supported. Record actual file properties and a rerun command. For revisions, map timestamped feedback to scenes, invalidate dependent results and preserve approved work. Public uploading and new paid use follow the user's existing authorization, not the skill's existence.
 
+## Agent-led upstream contributions
+
+During production and repair, notice reproducible skill defects, unclear instructions, missing capabilities and reusable improvements. When there is a concrete finding, read [upstream feedback](references/upstream-feedback.md). Prepare the sanitized report or focused, tested patch yourself; the user should only need to review and authorize the external contribution. Finish the requested artifact or report its blocker first. Use the host's available GitHub tools and the user's authorized account; installation alone grants no posting permission. This is an agent workflow, not background telemetry or a connection to the maintainer's chat.
+
 ## Local helpers
 
 `scripts/video_tools.py` uses only Python and FFmpeg. Run `--help` for options.
