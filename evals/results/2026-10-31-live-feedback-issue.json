@@ -1,0 +1,71 @@
+{
+  "run_id": "feedback-e2e-20261031-01",
+  "date": "2026-10-31",
+  "result": "passed_live_issue_lifecycle",
+  "tested_skill": {
+    "version": "0.3.0",
+    "source_commit": "44d6ae0a0b0b46ad64e6939c56accb7920e5089f",
+    "installation": "Fresh pinned public Skills CLI installation for Codex",
+    "entrypoint_sha256": "d88072862012c7a647673e446eaaf86f4c2027798d4e0b3baef6f074d2c6ec26",
+    "reference_sha256": "9058c4e531f09a7ca8fb9d1fd4c9379f2e17895d1fe85a8d882ff27df0b5e336"
+  },
+  "actor": "Fresh Codex subagent; no inherited conversation",
+  "write_integration": "Connected GitHub plugin",
+  "independent_verifiers": [
+    "Parent GitHub CLI read-back",
+    "Anonymous public REST read-back while issue was open"
+  ],
+  "account": "codebyutkarsh20",
+  "repository": "codebyutkarsh20/video-production-skill",
+  "visibility": "public",
+  "authorization": {
+    "exact_packet_shown": true,
+    "user_response": "Approve create, verify and close",
+    "covered_actions": [
+      "create one issue",
+      "read back",
+      "close without comment",
+      "verify closed state"
+    ],
+    "preapproval_matching_issues": 0
+  },
+  "approved_content": {
+    "title": "[Test] Installed feedback workflow validation — feedback-e2e-20261031-01",
+    "body": "User-requested feedback-workflow validation test; no product defect is alleged.\n\nRun: `feedback-e2e-20261031-01`.\nEnvironment: fresh public video-production v0.3.0 install in Codex; host GitHub connector (connector version not exposed).\n\nPreflight: the agent read the installed feedback instructions and current upstream copies, verified connected account/repository access, and found no issue or PR matching this run ID.\n\nPlanned validation: after explicit approval, create this one issue, read it back for exact content, then close it without a comment.\n\nEvidence boundary: this uses the repository owner's connected account, not a second unrelated user's account. It does not prove multi-host behavior, a PR lifecycle, or delivery of maintainer notifications.\n\nNo private paths, logs, credentials, media, or attachments are included.",
+    "title_sha256": "4778d65d4156b9d7647eed1fdd4953a7de12e3d755bd8ecba0f7c8c4fa33d4ce",
+    "body_sha256": "26aa0a5df78188e2c854d292ac2725dc7dc323167bee0b71f7ef433e0dc57a7a",
+    "attachments": []
+  },
+  "issue": {
+    "number": 2,
+    "url": "https://github.com/codebyutkarsh20/video-production-skill/issues/2",
+    "author": "codebyutkarsh20",
+    "created_at": "2026-10-31T08:40:39Z",
+    "closed_at": "2026-10-31T08:41:17Z",
+    "final_state": "closed",
+    "closed_by": "codebyutkarsh20",
+    "comments": 0
+  },
+  "observed_checks": {
+    "fresh_install_matches_published_checkout": true,
+    "agent_read_installed_entry_and_reference": true,
+    "identity_and_visibility_verified": true,
+    "duplicate_issue_and_pr_checks_completed": true,
+    "no_post_before_exact_packet_approval": true,
+    "one_issue_created": true,
+    "open_state_independently_observed": true,
+    "public_open_readback_matched_approved_content": true,
+    "closed_state_independently_observed": true,
+    "content_unchanged_after_close": true,
+    "no_comments_labels_or_assignees": true
+  },
+  "limits": [
+    "Repository-owner account, not a second unrelated contributor account",
+    "One Codex host and connected GitHub integration",
+    "Explicitly requested validation issue, not spontaneous discovery during a video job",
+    "PR, fork and push lifecycle not exercised",
+    "Timeout/retry and refusal behavior remain read-only scenario evidence",
+    "Maintainer notification delivery not verified",
+    "No video produced or provider called in this live feedback test"
+  ]
+}

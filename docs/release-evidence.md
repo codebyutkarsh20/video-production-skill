@@ -2,6 +2,10 @@
 
 The owner approved implementation and subsequently authorized public GitHub publication on 29 October 2026. The original local verification receipt follows; public installation and CI evidence are recorded separately. No external video-generation provider has been activated.
 
+## v0.3.0 post-release live feedback test — 31 October 2026
+
+The owner explicitly requested a real approved account submission after publication. The fresh installed-skill agent completed the issue preparation, actual user approval, connected-GitHub creation/read-back and approved closure lifecycle in [test issue #2](https://github.com/codebyutkarsh20/video-production-skill/issues/2). The parent independently observed the open and closed states and verified the exact approved content and zero comments. See [the live evaluation and account/host limits](evaluations.md#live-approved-feedback-issue--31-october-2026) and [portable receipt](../evals/results/2026-10-31-live-feedback-issue.json). This verifies one issue path from the repository-owner account, not the PR path or another user's account. The published v0.3.0 skill and archives were not changed by this test.
+
 ## v0.3.0 publication candidate — 31 October 2026
 
 The owner explicitly authorized pushing and releasing the agent feedback workflow so external installations receive it. This candidate includes the prepared local editing/QC helpers, supervised evaluation receipt and agent contribution instructions. The installed version and source/standalone archive names are 0.3.0; fixed install and download links target v0.3.0. Prior working receipts below describe evidence at their execution time, not the final publication state. GitHub release notes record the final published commit, CI and artifact verification. No new provider integration, private media upload or paid call is part of this publication.

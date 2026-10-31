@@ -7,3 +7,5 @@ Inputs are not bundled. Use your own licensed clips or a clip from an openly lic
 `trigger_phrases` lists requests that should and should not start the skill, to measure the description.
 
 `upstream-feedback-cases.json` separately exercises agent contribution decisions: proactive preparation, authorization, private evidence, missing host support, focused PRs and duplicate/uncertain writes. These are read-only scenario probes, not real GitHub integration tests. See `docs/evaluations.md` for the executions and limits.
+
+`results/2026-10-31-live-feedback-issue.json` separately records one live, explicitly approved issue lifecycle through the connected GitHub integration. It is not part of unattended tests: repeating it requires a new run ID, an exact public packet and actual authorization for the external writes. It establishes neither a second contributor account nor a PR lifecycle; see the evaluation receipt for boundaries.
