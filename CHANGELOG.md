@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.3.0 — 2026-10-31 — local editing, automated checks and agent contributions
+
+**Fixed**
+
+- Cuts at most source times no longer fail: half of random cut points failed in a two-scene edit before this, and none in 40 now. Chunks are checked for exact frame counts. The pipeline cache version is now 3.
+- Hard audio cuts get 30 ms fades, reducing the level jump on a test tone from ×19 to about ×1.
+- HDR sources are tone-mapped when FFmpeg supports it, and output carries real BT.709 tags.
+- Vertical specs no longer leave wide footage as a thin strip without warning. `fit: cover`, `focus_x/y` and `crop` fill the frame.
+- Rational frame rates such as `30000/1001` work, durations snap to whole frames, and still images are real scenes.
+
+**Added**
+
+- Agent/harness contribution instructions: discover concrete feedback during video work, prepare sanitized issues or tested PRs, and submit through available GitHub tools with the external user's scoped authorization. No telemetry or background notification service is bundled.
+- `verify --qc`: black and frozen picture, silence, loudness, true peak, picture coverage and caption limits. A failing check exits 1.
+- Footage reading: `transcribe.py` (local word timings), `pack`, `shots`, `timeline`, `cuts`, `captions`, `review` and `speech-check`.
+- Finishing in `compose`: narration or scene audio, looped ducked music, two-pass loudness and burned captions in three styles, with a warning when a burned cue is likely to run past two lines.
+- `reframe.py`: experimental per-scene face-tracked crop. `screen_capture.cjs`: visible cursor and 2× capture for Playwright.
+- `--source-root` for sources outside the project, and `doctor` reporting by route.
+- References for footage editing, craft and named looks; routing notes for specialist tools; first and last frame pinning and a disclosure step for generated media; repeatable agent cases in `evals/`.
+
+**Changed**
+
+- Rewrote the skill description around the words people use, such as edit, reel, TikTok, subtitles and silences. The effect on triggering is unmeasured.
+- The caption-to-speech check moved off the “cannot check” list as a warning signal.
+- Showcase captions wrap to two lines of at most 42 characters, and the stale version label is gone. The audio pipeline version is now 5.
+
+No provider adapter is bundled and no new provider was tested.
+
 ## 0.2.0 — 2026-10-29 — proactive production guidance
 
 - Added proactive creative recommendations, missing-input discovery and scoped improvement suggestions.

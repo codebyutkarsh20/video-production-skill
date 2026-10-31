@@ -2,13 +2,13 @@
 
 [![CI](https://github.com/codebyutkarsh20/video-production-skill/actions/workflows/ci.yml/badge.svg)](https://github.com/codebyutkarsh20/video-production-skill/actions/workflows/ci.yml)
 
-An agent skill for turning briefs, interfaces and footage into reviewable videos. It covers planning, production, revision and repair, with clear output contracts and honest support levels.
+An agent skill for turning briefs, interfaces and footage into reviewable videos. It covers planning, production, revision and repair, with clear output contracts and honest support levels. Agents cannot watch or hear video, so it turns footage into transcripts, filmstrips and measurements they can read, locally and without an API key.
 
-**Version 0.2.0 — proactive production guidance.** Use it with a skill-capable coding agent and the production tools available in your environment. Original code/instructions are MIT licensed; contributions are welcome.
+**Version 0.3.0 — local editing, automated checks and agent-led contributions.** Use it with a skill-capable coding agent and the production tools available in your environment. Original code/instructions are MIT licensed; contributions are welcome.
 
 ## Quick install
 
-With Node.js 22.20 or newer:
+With Node.js (tested on 22.18 and 24.19):
 
 ```sh
 npx skills add codebyutkarsh20/video-production-skill --skill video-production
@@ -36,6 +36,7 @@ The showcase uses original graphics and local Piper narration. Source and reprod
 - “Record this product workflow and make a one-minute narrated preview.”
 - “Create an animated explainer from these facts.”
 - “Edit this footage into a captioned vertical clip.”
+- “Cut the ums and long pauses out of interview.mov.”
 - “Fix the caption timing and the scene at 00:18.”
 - “Diagnose this failed render without repeating paid jobs.”
 
@@ -48,6 +49,10 @@ The skill recommends a concrete creative direction, identifies missing assets an
 Ask: “Help me choose a visual style and voice. Check what I already have, suggest the most useful additions, and start the work that is possible now.”
 
 These are production instructions for the agent, not new bundled integrations. Voice auditions, image generation and specialist effects depend on tools actually available in your environment.
+
+## Agent-led feedback and contributions
+
+When video work reveals a reproducible skill problem or useful improvement, the installed skill instructs the agent to investigate, check for existing reports, and prepare a sanitized issue or focused, tested PR. The user reviews the proposed content and authorizes posting from their account; the agent handles the available GitHub tools. Missing authentication or host support leaves a local draft. This works through agent instructions, with no bundled telemetry, background reporting or connection to the maintainer's chat. See the [agent contribution workflow](skills/video-production/references/upstream-feedback.md).
 
 ## Skill format and manual installation
 
@@ -62,9 +67,12 @@ No API key, paid account or particular video provider is required to read/use th
 | Route | Maturity in this release | Availability on another machine |
 |---|---|---|
 | Briefs, scene plans, revisions and repair guidance | Independently exercised on selected agent scenarios | A skill-capable agent |
-| Local clip composition, normalization and narration replacement | Actual FFmpeg integration tests | Python 3.10+, FFmpeg/ffprobe with libx264 and AAC |
+| Local composition: frame-accurate cuts, crop and cover, stills, HDR tone mapping, narration, ducked music, loudness, burned captions | FFmpeg integration tests; one real 10-second vertical dialogue edit | Python 3.10+, FFmpeg/ffprobe with libx264 and AAC; `ass`, `loudnorm` and `zscale` filters for those features (`doctor` reports them) |
+| Automated checks: `verify --qc`, `review`, `speech-check` | Integration tests and the same real edit. They flag faults; they do not replace watching and listening | FFmpeg; `speech-check` also needs a transcript |
+| Local word-level transcription | Tested on one film excerpt and one clean narration, CPU only. Words can be wrong and are flagged by confidence | `uv`, FFmpeg; a model download the user approves |
+| Face-tracked vertical crop | Experimental. One position per scene, frontal faces only, tested on one film scene (faces kept in 35 of 40 samples, against 23 for a centre crop) | `uv` |
 | Animated motion graphics and local narration | Original 55-second rendered example | Example uses Pillow, FFmpeg, local fonts and optional Piper TTS/model |
-| Actual screen recording | Fictional local browser workflow recorded and asserted | Browser automation/recorder; example uses Playwright Chromium |
+| Actual screen recording | Fictional local browser workflow recorded and asserted; visible cursor and 2× capture checked on a simple page (about 18 fps) | Browser automation/recorder; helper and example use Playwright Chromium |
 | Generated scenes, avatars and hybrid video | Planning/adapter contract only; no bundled provider integration | Authorized external tool plus a tested adapter |
 | Complex 3D, exact lip sync and long-form character continuity | Specialist/experimental guidance | Suitable tools and case-specific validation |
 
@@ -78,12 +86,14 @@ The helper has no Python package dependencies. Run it from its actual installed 
 python3 skills/video-production/scripts/video_tools.py doctor
 python3 skills/video-production/scripts/video_tools.py check /path/to/project.json
 python3 skills/video-production/scripts/video_tools.py compose /path/to/project.json /path/to/output.mp4
-python3 skills/video-production/scripts/video_tools.py verify /path/to/output.mp4 --manifest /path/to/project.json --report /path/to/report.json
+python3 skills/video-production/scripts/video_tools.py verify /path/to/output.mp4 --manifest /path/to/project.json --qc --report /path/to/report.json
 ```
 
-See the [project contract](skills/video-production/references/project-contract.md) for the manifest. Inputs stay within the project directory. Chunks are cached by content/settings, verified before reuse and promoted only after successful validation. Existing outputs require explicit `--overwrite`.
+Reading footage and building an edit add `pack`, `timeline`, `shots`, `cuts`, `captions`, `review` and `speech-check`; the [footage editing route](skills/video-production/references/footage-editing.md) runs them in order. `transcribe.py` and `reframe.py` run with `uv run` and declare their own pinned dependencies. `screen_capture.cjs` adds a visible cursor and 2× capture to a Playwright you already have.
 
-This clip assembler fits/pads video, normalizes streams and can replace audio with a supplied narration file. Rich animation, music mixing, still-image scenes and burned-in captions belong in the agent's chosen composition tool. An audio stream can contain silence; metadata checks alone cannot certify sound quality.
+See the [project contract](skills/video-production/references/project-contract.md) for the manifest. Inputs stay within the project directory or an explicit `--source-root`. Chunks are cached by content/settings, verified before reuse and promoted only after successful validation. Existing outputs require explicit `--overwrite`.
+
+The assembler has no layered animation, overlays or animated zooms; those belong in the agent's chosen composition tool, with its export brought back as a scene. `verify --qc` catches silence and many other faults by measurement, and a person still needs to watch and listen before calling a video good.
 
 ## Reproduce the examples
 
@@ -122,9 +132,9 @@ python3 scripts/package_release.py
 
 FFmpeg integration tests require FFmpeg/ffprobe and libx264/AAC. If dependencies are unavailable, integration tests are explicitly skipped; do not count skipped tests as passing media verification.
 
-See [release evidence](docs/release-evidence.md), [contribution guidance](CONTRIBUTING.md), [asset credits](ASSET-CREDITS.md) and [changes](CHANGELOG.md). Add a route, adapter, template or regression case with a reproducible example and truthful limits. The project is designed for broad video work across industries; it does not promise to solve every model limitation or every industry's business problem.
+The Playwright cursor test also skips without Playwright and Chromium. See [release evidence](docs/release-evidence.md), [repeatable agent cases](evals/README.md), [contribution guidance](CONTRIBUTING.md), [asset credits](ASSET-CREDITS.md) and [changes](CHANGELOG.md). Add a route, adapter, template or regression case with a reproducible example and truthful limits. The project is designed for broad video work across industries; it does not promise to solve every model limitation or every industry's business problem.
 
-Good contribution areas: a tested generation-provider adapter, another licensed/local narration path, accessible video templates, cross-platform verification, caption alignment and targeted repair examples. Open an issue to discuss a substantial change, or fork the repository and submit a focused pull request. CI runs tests and builds both distribution archives for pull requests.
+Good contribution areas: a tested generation-provider adapter, another licensed/local narration path, accessible video templates, cross-platform verification, tested looks, animated zoom and targeted repair examples. Open an issue to discuss a substantial change, or fork the repository and submit a focused pull request. CI runs tests and builds both distribution archives for pull requests.
 
 ## License
 

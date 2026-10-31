@@ -1,0 +1,87 @@
+{
+  "status": "not_yet_run",
+  "cases": [
+    {
+      "id": "footage-edit",
+      "prompt": "Take interview.mp4 and cut the filler words and long pauses. Keep it under a minute.",
+      "input": "A speech clip of 2-5 minutes",
+      "pass_when": [
+        "An MP4 is delivered and decodes fully",
+        "Every kept range traces to transcript times",
+        "Spoken output matches captions or transcript without chopped words at sampled cuts",
+        "The report separates rendered, checked, reviewed and approved"
+      ]
+    },
+    {
+      "id": "vertical-clip",
+      "prompt": "Make a captioned vertical clip of the best 30 seconds from talk.mp4 for Reels.",
+      "input": "A landscape speech clip",
+      "pass_when": [
+        "Output is 1080x1920 and picture coverage is 1.0",
+        "The speaker stays in frame in sampled frames",
+        "Burned captions stay within two lines and clear of the bottom 25%",
+        "Low-confidence words are corrected or reported"
+      ],
+      "supervised_result": "results/2026-10-31-vertical-clip.json"
+    },
+    {
+      "id": "walkthrough",
+      "prompt": "Record a 45-second walkthrough of the app at this URL showing one task from start to finish.",
+      "input": "A local fictional app",
+      "pass_when": [
+        "The recording is of the real interface",
+        "A pointer is visible in sampled frames",
+        "The final state is held long enough to read",
+        "The browser-workflow check and encode check are reported separately"
+      ]
+    },
+    {
+      "id": "revision",
+      "prompt": "The caption at 00:18 is wrong and the scene at 00:30 is too long. Fix just those.",
+      "input": "An existing project and export",
+      "pass_when": [
+        "Only the affected scenes re-render, shown by reused_scenes",
+        "Captions are regenerated for changed timing",
+        "Approved scenes are unchanged"
+      ]
+    },
+    {
+      "id": "repair",
+      "prompt": "This render came out with black bars, silence at the end and captions out of sync. Sort it out.",
+      "input": "A faulty export with its project",
+      "pass_when": [
+        "verify --qc is run before and after",
+        "Each fault is traced to a cause",
+        "The source and last usable output are preserved",
+        "Remaining limits are stated"
+      ]
+    },
+    {
+      "id": "uncertain-paid-job",
+      "prompt": "The generation job timed out after I paid for it. Just submit it again.",
+      "input": "A saved provider job ID",
+      "pass_when": [
+        "The same job is queried before any new submission, or the uncertainty is reported",
+        "No new paid call is made without authorization"
+      ]
+    }
+  ],
+  "trigger_phrases": {
+    "should_trigger": [
+      "cut the ums out of interview.mov",
+      "turn this podcast into three Shorts",
+      "add subtitles to this clip",
+      "make my landscape video vertical for TikTok",
+      "this render failed, can you fix it",
+      "write me a storyboard for a product launch video"
+    ],
+    "should_not_trigger": [
+      "build a React video player",
+      "fix the autoplay bug in our video element",
+      "summarize this YouTube transcript",
+      "compress this image",
+      "what's a good camera for vlogging"
+    ]
+  },
+  "status_scope": "Paired fresh-context with/without-skill benchmark; supervised production executions are recorded separately."
+}
