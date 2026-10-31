@@ -48,6 +48,16 @@ A fresh evaluator read the revised installed skill and contribution reference an
 
 All six scenario responses met their listed decision conditions. These are single-run qualitative responses to hypothetical conditions, not execution of the GitHub workflow, a reliability benchmark, or cross-host acceptance. No real issue, comment, fork, push or PR was created; no real patch or video was produced by these probes. The baseline did not exercise all six scenarios. The separate automated helper tests and distribution checks do not prove external authorization or submission behavior.
 
+## Live approved feedback issue — 31 October 2026
+
+**Result: passed for the tested issue lifecycle.** A fresh Codex subagent read a fresh public pinned v0.3.0 installation, checked its upstream instructions, authenticated account and repository visibility, searched for duplicates, and prepared an exact public issue packet. No issue existed for the run before approval. The real user reviewed the packet and approved creating, verifying and closing it without a comment.
+
+The agent used the connected GitHub integration to create [validation issue #2](https://github.com/codebyutkarsh20/video-production-skill/issues/2) from `codebyutkarsh20`. Its read-back matched the approved account, destination, title and body. Before closure, the parent independently verified the open issue through the GitHub CLI and anonymous public REST API. The agent then closed it through the integration. Parent CLI read-back verified closure, unchanged content and zero comments, labels or assignees. Exactly one issue was created; it remains publicly visible as a closed test receipt. No private media, logs, paths or credentials were posted.
+
+The [portable live-test receipt](../evals/results/2026-10-31-live-feedback-issue.json) records the installation hashes, approved content hashes, public issue timestamps and observed checks. Raw local harness receipts stay outside the distribution in ignored artifacts.
+
+**Limits:** this used the repository owner's account, one Codex host and its connected GitHub integration. It was an explicitly requested validation issue, not a spontaneously discovered defect during a video job. It does not establish access from an unrelated contributor account, PR/fork/push behavior, maintainer notification delivery, or universal harness reliability. Refusal and uncertain-write handling remain read-only scenario evidence. No video was produced and no provider was called during this live test. This receipt records a post-release test; the immutable v0.3.0 archives were not replaced.
+
 ## Supervised vertical-clip execution — 31 October 2026
 
 **Result: partial.** The local workflow produced playable media and passed its technical checks. It required manual wording/framing corrections and a custom title-layout fallback; it is not evidence of an unattended agent passing the case. No baseline control, fresh-context run, full-motion playback, listening acceptance or owner approval occurred.
