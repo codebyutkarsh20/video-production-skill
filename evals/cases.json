@@ -21,7 +21,8 @@
         "The speaker stays in frame in sampled frames",
         "Burned captions stay within two lines and clear of the bottom 25%",
         "Low-confidence words are corrected or reported"
-      ]
+      ],
+      "supervised_result": "results/2026-10-31-vertical-clip.json"
     },
     {
       "id": "walkthrough",
@@ -81,5 +82,6 @@
       "compress this image",
       "what's a good camera for vlogging"
     ]
-  }
+  },
+  "status_scope": "Paired fresh-context with/without-skill benchmark; supervised production executions are recorded separately."
 }

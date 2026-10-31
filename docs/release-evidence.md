@@ -32,6 +32,8 @@ A nine-frame contact sheet, a few single frames and one review image were inspec
 
 **Not done:** provider adapter, animated auto-zoom, tested looks, agent runs of `evals/`, description trigger measurement, Linux or Windows runs, listening review. The `evals/` cases have not been run. Looks and platform figures are untested starting points.
 
+**Subsequent local evidence — 31 October 2026:** one supervised `vertical-clip` case has now been executed, with a **partial** result. The export passes decoding/timing, while crop-edge and caption-speed findings and listening review remain open. This does not establish a fresh-context agent or paired benchmark result. See [the evaluation receipt and reproduction commands](evaluations.md#supervised-vertical-clip-execution--31-october-2026); the original working receipt above describes its earlier checks. No v0.3.0 release, merge or media upload was performed during this evaluation.
+
 ## v0.2.0 publication candidate — 29 October 2026
 
 The owner authorized pushing the proactive-production update and publishing a new public release. This version adds creative direction and missing-input discovery, visual/audio tool recommendations and voice-audition guidance. It adds no provider integration, bundled voice engine or new generated showcase; the v0.1.0 sample remains an illustration of the existing rendering route.

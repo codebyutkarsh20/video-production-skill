@@ -1,0 +1,811 @@
+{
+  "case": "vertical-clip",
+  "date": "2026-10-31",
+  "skill_commit": "c64d041",
+  "execution": "Single supervised existing-chat production run; three render passes; not fresh-context or paired with/without-skill evaluation",
+  "overall": "partial; technical checks pass, sampled visual improvements checked, remaining crop/readability/listening limits",
+  "source": {
+    "title": "Tears of Steel (2012)",
+    "credit": "(CC) Blender Foundation | mango.blender.org",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0/",
+    "license_evidence": "https://mango.blender.org/sharing/",
+    "url": "https://download.blender.org/demo/movies/ToS/tears_of_steel_720p.mov",
+    "subtitles_url": "https://download.blender.org/demo/movies/ToS/subtitles/TOS-en.srt",
+    "local_sample": "talk.mov",
+    "sample": "First 80 seconds remuxed without video/audio re-encoding",
+    "sha256": "3b959b3a10b74997652e94d8a1010ce4340f3b38418bed640e1588a26cdba479",
+    "subtitle_sha256": "ce9578f6fe098a5821045a38884b229160f9e7ba27890448a92f5be330c6e6fe",
+    "video": "1280x534, 24 fps, H.264; MP3 audio",
+    "edit": "24.300\u201354.300s in original order; frame snapping yields 899 frames / 29.966667s",
+    "limitations": "Film dialogue instead of a single-speaker talk; source upscaled; no interview or broad scene-selection acceptance"
+  },
+  "environment": {
+    "os": "Darwin",
+    "python": "3.14.7",
+    "ffmpeg": "ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers",
+    "transcription": "faster-whisper 1.2.1, cached base.en, CPU int8; no model download"
+  },
+  "project": {
+    "version": 1,
+    "title": "Tears of Steel \u2014 vertical clip evaluation",
+    "mode": "production",
+    "spec": {
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "min_duration": 29.9,
+      "max_duration": 30.1,
+      "audio": "required"
+    },
+    "assets": [
+      {
+        "path": "talk.mov",
+        "provenance": "Tears of Steel (2012), Blender Foundation; official 720p MOV; first 80 seconds remuxed without re-encoding",
+        "rights": "CC BY 3.0; https://mango.blender.org/sharing/ ; (CC) Blender Foundation | mango.blender.org; edited/cropped/captioned test excerpt"
+      },
+      {
+        "path": "captions.srt",
+        "provenance": "Local base.en ASR, corrected against official English subtitles; overlapping timing provisional",
+        "rights": "Adapted film dialogue, CC BY 3.0, (CC) Blender Foundation | mango.blender.org"
+      },
+      {
+        "path": "title-reframed.mp4",
+        "provenance": "talk.mov 42.083s, 106 frames; central 800px crop over blurred cover background preserves the original time-jump title",
+        "rights": "Adapted Tears of Steel, CC BY 3.0; (CC) Blender Foundation | mango.blender.org"
+      }
+    ],
+    "scenes": [
+      {
+        "id": "scene-01",
+        "asset": "talk.mov",
+        "trim_start": 24.3,
+        "duration": 0.7,
+        "source_audio": true,
+        "fit": "cover",
+        "focus_x": 0.5
+      },
+      {
+        "id": "scene-02",
+        "asset": "talk.mov",
+        "trim_start": 25,
+        "duration": 5.3,
+        "source_audio": true,
+        "fit": "cover",
+        "focus_x": 0.4
+      },
+      {
+        "id": "scene-03",
+        "asset": "talk.mov",
+        "trim_start": 30.3,
+        "duration": 4.1,
+        "source_audio": true,
+        "fit": "cover",
+        "focus_x": 0.55
+      },
+      {
+        "id": "scene-04",
+        "asset": "talk.mov",
+        "trim_start": 34.4,
+        "duration": 2.8,
+        "source_audio": true,
+        "fit": "cover",
+        "focus_x": 0.35
+      },
+      {
+        "id": "scene-05",
+        "asset": "talk.mov",
+        "trim_start": 37.2,
+        "duration": 3.033333333333333,
+        "source_audio": true,
+        "fit": "cover",
+        "focus_x": 0.35
+      },
+      {
+        "id": "scene-06",
+        "asset": "talk.mov",
+        "trim_start": 40.25,
+        "duration": 1.8333333333333333,
+        "source_audio": true,
+        "fit": "cover",
+        "focus_x": 0.5
+      },
+      {
+        "id": "scene-07",
+        "asset": "title-reframed.mp4",
+        "trim_start": 0,
+        "duration": 3.533333333333333,
+        "source_audio": true,
+        "fit": "cover",
+        "focus_x": 0.5
+      },
+      {
+        "id": "scene-08",
+        "asset": "talk.mov",
+        "trim_start": 45.625,
+        "duration": 4.166666666666667,
+        "source_audio": true,
+        "fit": "cover",
+        "focus_x": 0.5
+      },
+      {
+        "id": "scene-09",
+        "asset": "talk.mov",
+        "trim_start": 49.792,
+        "duration": 1.3333333333333333,
+        "source_audio": true,
+        "fit": "cover",
+        "focus_x": 0.5
+      },
+      {
+        "id": "scene-10",
+        "asset": "talk.mov",
+        "trim_start": 51.125,
+        "duration": 2.533333333333333,
+        "source_audio": true,
+        "fit": "cover",
+        "focus_x": 0.63
+      },
+      {
+        "id": "scene-11",
+        "asset": "talk.mov",
+        "trim_start": 53.667,
+        "duration": 0.6333333333333333,
+        "source_audio": true,
+        "fit": "cover",
+        "focus_x": 0.35
+      }
+    ],
+    "loudness": {
+      "target": -14,
+      "true_peak": -1.5
+    },
+    "brief": {
+      "purpose": "Supervised vertical-clip evaluation, not fresh-context agent benchmark",
+      "source_range": "24.300\u201354.300 seconds, original order; speaker-turn crop splits",
+      "limitations": "720p ultrawide source upscaled; film dialogue rather than an interview"
+    },
+    "captions": "captions.srt",
+    "burn_captions": {
+      "style": "bold-center"
+    }
+  },
+  "captions_srt": "1\n00:00:00,000 --> 00:00:01,460\nLook, Celia, we have to\n\n2\n00:00:01,460 --> 00:00:02,280\nfollow our passions.\n\n3\n00:00:03,100 --> 00:00:03,800\nYou have your robotics,\n\n4\n00:00:03,920 --> 00:00:04,620\nand I just want to be\n\n5\n00:00:04,620 --> 00:00:05,480\nawesome in space.\n\n6\n00:00:06,120 --> 00:00:07,340\nWhy don't you just admit\n\n7\n00:00:07,340 --> 00:00:08,780\nthat you're freaked out\n\n8\n00:00:08,780 --> 00:00:09,900\nby my robot hand?\n\n9\n00:00:10,300 --> 00:00:11,320\nI'm not freaked out, but\n\n10\n00:00:11,320 --> 00:00:12,340\nit's...\n\n11\n00:00:12,900 --> 00:00:13,800\nAll right, fine.\n\n12\n00:00:14,360 --> 00:00:15,060\nI'm freaked out.\n\n13\n00:00:15,240 --> 00:00:15,620\nI'm having nightmares\n\n14\n00:00:15,620 --> 00:00:16,623\nthat I'm being chased by\n\n15\n00:00:16,623 --> 00:00:17,503\nthese giant robotic\n\n16\n00:00:17,503 --> 00:00:18,184\nclaws of death...\n\n17\n00:00:18,184 --> 00:00:18,544\nWhatever, Thom.\n\n18\n00:00:18,544 --> 00:00:19,244\nWe're done.\n\n19\n00:00:19,644 --> 00:00:20,444\nWe're done.\n\n20\n00:00:25,467 --> 00:00:26,345\nRobot's memory\n\n21\n00:00:27,085 --> 00:00:29,045\nsynced, and locked.\n\n",
+  "attribution": "Tears of Steel (2012)\n(CC) Blender Foundation | mango.blender.org\nhttps://mango.blender.org/\nLicense: Creative Commons Attribution 3.0\nhttps://creativecommons.org/licenses/by/3.0/\nLicense source: https://mango.blender.org/sharing/\nMedia: https://download.blender.org/demo/movies/ToS/tears_of_steel_720p.mov\nOfficial subtitles: https://download.blender.org/demo/movies/ToS/subtitles/TOS-en.srt\nChanges: 30-second excerpt; speaker-turn edits, vertical cropping/upscaling, loudness normalization, burned captions. Not endorsed by the creators.\nOriginal film soundtrack retained within the film excerpt; no separate soundtrack asset used.\n",
+  "caption_corrections": [
+    "glasses -> claws of death; garbled reply -> Whatever, Thom. We're done.; Robots -> Robot's",
+    "Overlapping words and estimated timings explicitly remain unverified by listening."
+  ],
+  "uncertain_source_words": [
+    {
+      "w": "All",
+      "s": 37.2,
+      "e": 37.72,
+      "p": 0.311
+    },
+    {
+      "w": "claws",
+      "s": 41.82,
+      "e": 42.05,
+      "p": 0.0,
+      "review": "Official subtitle wording; estimated overlapping-speech timing; listening pending"
+    },
+    {
+      "w": "of",
+      "s": 42.05,
+      "e": 42.15,
+      "p": 0.0,
+      "review": "Official subtitle wording; estimated overlapping-speech timing; listening pending"
+    },
+    {
+      "w": "death...",
+      "s": 42.15,
+      "e": 42.45,
+      "p": 0.0,
+      "review": "Official subtitle wording; estimated overlapping-speech timing; listening pending"
+    },
+    {
+      "w": "Whatever,",
+      "s": 42.5,
+      "e": 42.73,
+      "p": 0.0,
+      "review": "Official subtitle wording; estimated overlapping-speech timing; listening pending"
+    },
+    {
+      "w": "Thom.",
+      "s": 42.73,
+      "e": 42.86,
+      "p": 0.0,
+      "review": "Official subtitle wording; estimated overlapping-speech timing; listening pending"
+    },
+    {
+      "w": "We're",
+      "s": 42.86,
+      "e": 43.02,
+      "p": 0.0,
+      "review": "Official subtitle wording; estimated overlapping-speech timing; listening pending"
+    },
+    {
+      "w": "done.",
+      "s": 43.02,
+      "e": 43.2,
+      "p": 0.0,
+      "review": "Official subtitle wording; estimated overlapping-speech timing; listening pending"
+    },
+    {
+      "w": "memory",
+      "s": 50.37,
+      "e": 50.67,
+      "p": 0.361
+    }
+  ],
+  "manual_interventions": [
+    "Split bridge shot at speaker turns and inspected focus_x manually; detector-only result kept 59/81 detected-face centers versus 18/81 for center crop, not a visual pass. False positives occurred in lab graphics.",
+    "Replaced clipped time-jump title crop with central 800px source crop scaled to 1080x720 over a blurred full-frame background for 106 frames.",
+    "Adjusted moving bridge speaker and lab speaker crop after sampled review.",
+    "Cross-checked wording against official English subtitles; overlapping speech timings remain provisional.",
+    "Changed loudness true_peak target from -1 to -1.5 dBTP after first export measured -0.9."
+  ],
+  "verification": {
+    "file": "vertical-clip.mp4",
+    "technical_pass": true,
+    "errors": [],
+    "checks": {
+      "metadata": "pass",
+      "full_decode": "pass",
+      "caption_timing": "pass"
+    },
+    "review": {
+      "visual": "not_performed",
+      "listening": "not_performed",
+      "user_approval": "not_requested"
+    },
+    "duration": 29.966667,
+    "video_duration": 29.966667,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30.0,
+    "video_codec": "h264",
+    "pixel_format": "yuv420p",
+    "audio_streams": 1,
+    "bytes": 27609269,
+    "caption_count": 21,
+    "qc": {
+      "status": "warn",
+      "findings": [
+        {
+          "severity": "warn",
+          "check": "caption_speed",
+          "detail": "cue 2 runs at 24 characters per second",
+          "start": 1.46
+        },
+        {
+          "severity": "warn",
+          "check": "caption_speed",
+          "detail": "cue 3 runs at 33 characters per second",
+          "start": 3.1
+        },
+        {
+          "severity": "warn",
+          "check": "caption_speed",
+          "detail": "cue 4 runs at 30 characters per second",
+          "start": 3.92
+        },
+        {
+          "severity": "warn",
+          "check": "caption_speed",
+          "detail": "cue 9 runs at 24 characters per second",
+          "start": 10.3
+        },
+        {
+          "severity": "warn",
+          "check": "caption_speed",
+          "detail": "cue 12 runs at 23 characters per second",
+          "start": 14.36
+        },
+        {
+          "severity": "warn",
+          "check": "caption_speed",
+          "detail": "cue 13 runs at 55 characters per second",
+          "start": 15.24
+        },
+        {
+          "severity": "warn",
+          "check": "caption_duration",
+          "detail": "cue 13 shows for 0.38s",
+          "start": 15.24
+        },
+        {
+          "severity": "warn",
+          "check": "caption_speed",
+          "detail": "cue 14 runs at 24 characters per second",
+          "start": 15.62
+        },
+        {
+          "severity": "warn",
+          "check": "caption_speed",
+          "detail": "cue 15 runs at 22 characters per second",
+          "start": 16.623
+        },
+        {
+          "severity": "warn",
+          "check": "caption_speed",
+          "detail": "cue 16 runs at 25 characters per second",
+          "start": 17.503
+        },
+        {
+          "severity": "warn",
+          "check": "caption_speed",
+          "detail": "cue 17 runs at 42 characters per second",
+          "start": 18.184
+        },
+        {
+          "severity": "warn",
+          "check": "caption_duration",
+          "detail": "cue 17 shows for 0.36s",
+          "start": 18.184
+        }
+      ],
+      "measures": {
+        "picture_coverage": 1.0,
+        "black_seconds": 0,
+        "lufs": -14.0,
+        "lra": 4.3,
+        "true_peak": -1.3,
+        "silent_seconds": 0
+      }
+    }
+  },
+  "speech_check": {
+    "text_similarity": 0.899,
+    "spoken_words_inside_cues": 1.0,
+    "spoken_words": 67,
+    "caption_words": 71,
+    "status": "pass"
+  },
+  "caption_layout": {
+    "method": "Each exact cue rendered separately at time zero with the same libass style on black; white-glyph bounds and row bands; visual sheets checked separately",
+    "cues": [
+      {
+        "cue": 1,
+        "bbox": [
+          287,
+          1204,
+          793,
+          1348
+        ],
+        "text_row_groups": 2,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 2,
+        "bbox": [
+          283,
+          1204,
+          802,
+          1348
+        ],
+        "text_row_groups": 2,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 3,
+        "bbox": [
+          218,
+          1204,
+          862,
+          1359
+        ],
+        "text_row_groups": 2,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 4,
+        "bbox": [
+          297,
+          1204,
+          780,
+          1348
+        ],
+        "text_row_groups": 2,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 5,
+        "bbox": [
+          134,
+          1290,
+          941,
+          1348
+        ],
+        "text_row_groups": 1,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 6,
+        "bbox": [
+          228,
+          1204,
+          847,
+          1348
+        ],
+        "text_row_groups": 2,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 7,
+        "bbox": [
+          268,
+          1204,
+          816,
+          1348
+        ],
+        "text_row_groups": 2,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 8,
+        "bbox": [
+          129,
+          1290,
+          953,
+          1348
+        ],
+        "text_row_groups": 1,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 9,
+        "bbox": [
+          205,
+          1204,
+          877,
+          1359
+        ],
+        "text_row_groups": 2,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 10,
+        "bbox": [
+          444,
+          1290,
+          636,
+          1348
+        ],
+        "text_row_groups": 1,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 11,
+        "bbox": [
+          215,
+          1290,
+          860,
+          1359
+        ],
+        "text_row_groups": 1,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 12,
+        "bbox": [
+          194,
+          1290,
+          886,
+          1348
+        ],
+        "text_row_groups": 1,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 13,
+        "bbox": [
+          287,
+          1204,
+          795,
+          1348
+        ],
+        "text_row_groups": 2,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 14,
+        "bbox": [
+          244,
+          1204,
+          833,
+          1348
+        ],
+        "text_row_groups": 2,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 15,
+        "bbox": [
+          95,
+          1290,
+          983,
+          1348
+        ],
+        "text_row_groups": 1,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 16,
+        "bbox": [
+          163,
+          1290,
+          915,
+          1348
+        ],
+        "text_row_groups": 1,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 17,
+        "bbox": [
+          175,
+          1290,
+          900,
+          1359
+        ],
+        "text_row_groups": 1,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 18,
+        "bbox": [
+          283,
+          1290,
+          792,
+          1348
+        ],
+        "text_row_groups": 1,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 19,
+        "bbox": [
+          283,
+          1290,
+          792,
+          1348
+        ],
+        "text_row_groups": 1,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 20,
+        "bbox": [
+          188,
+          1290,
+          897,
+          1348
+        ],
+        "text_row_groups": 1,
+        "above_bottom_25_percent": true
+      },
+      {
+        "cue": 21,
+        "bbox": [
+          94,
+          1290,
+          984,
+          1359
+        ],
+        "text_row_groups": 1,
+        "above_bottom_25_percent": true
+      }
+    ],
+    "all_above_bottom_25_percent": true,
+    "max_text_row_groups": 2
+  },
+  "review": {
+    "sampled_visual": "Inspected 12 final review images (six frames each: opening, ending, all 10 cuts) plus one midpoint frame for each of 21 cues, displayed in six contact sheets. Samples overlap. Source scenes and first-pass sheets were also inspected.",
+    "cut_coverage": {
+      "views": [
+        {
+          "label": "opening",
+          "start": 0,
+          "end": 2,
+          "image": "review-final/view-00.png"
+        },
+        {
+          "label": "ending",
+          "start": 27.967,
+          "end": 29.967,
+          "image": "review-final/view-01.png"
+        },
+        {
+          "label": "cut:0.700",
+          "start": 0,
+          "end": 1.7,
+          "image": "review-final/view-02.png"
+        },
+        {
+          "label": "cut:6.000",
+          "start": 5.0,
+          "end": 7.0,
+          "image": "review-final/view-03.png"
+        },
+        {
+          "label": "cut:10.100",
+          "start": 9.1,
+          "end": 11.1,
+          "image": "review-final/view-04.png"
+        },
+        {
+          "label": "cut:12.900",
+          "start": 11.9,
+          "end": 13.9,
+          "image": "review-final/view-05.png"
+        },
+        {
+          "label": "cut:15.933",
+          "start": 14.933,
+          "end": 16.933,
+          "image": "review-final/view-06.png"
+        },
+        {
+          "label": "cut:17.767",
+          "start": 16.767,
+          "end": 18.767,
+          "image": "review-final/view-07.png"
+        },
+        {
+          "label": "cut:21.300",
+          "start": 20.3,
+          "end": 22.3,
+          "image": "review-final/view-08.png"
+        },
+        {
+          "label": "cut:25.467",
+          "start": 24.467,
+          "end": 26.467,
+          "image": "review-final/view-09.png"
+        },
+        {
+          "label": "cut:26.800",
+          "start": 25.8,
+          "end": 27.8,
+          "image": "review-final/view-10.png"
+        },
+        {
+          "label": "cut:29.333",
+          "start": 28.333,
+          "end": 29.967,
+          "image": "review-final/view-11.png"
+        }
+      ],
+      "cuts": 10,
+      "cuts_not_shown": 0
+    },
+    "findings": [
+      "Original time-jump title fully readable after custom FFmpeg layout fallback.",
+      "No caption glyph exceeds two row bands; all 21 glyph bounds end above y=1440 on the 1920px frame.",
+      "Bridge speaker face remains near the right edge just after the cut around output 6.17s; some head/edge clipping remains in those samples. Face tracking cannot be marked fully accepted.",
+      "Shot-level crop excludes the other actor and parts of the gesturing robot hand; the wide interaction is not fully retained.",
+      "Caption-speed and short-duration warnings remain; cues 13 and 17 last 0.38s and 0.36s.",
+      "No full-motion playback or listening was performed; chopped-word, naturalness, overlapping-word timing and perceptual sync acceptance remain open."
+    ],
+    "listening": "not_performed",
+    "user_approval": "not_requested"
+  },
+  "criteria": [
+    {
+      "criterion": "1080x1920 and picture coverage 1.0",
+      "status": "pass",
+      "evidence": "Final metadata and QC measurements; title uses blurred fill, not simple cover crop."
+    },
+    {
+      "criterion": "Speaker stays in frame in sampled frames",
+      "status": "partial",
+      "evidence": "Manual crops improve samples but moving bridge speaker still approaches/clips right edge around 6.17s."
+    },
+    {
+      "criterion": "Burned captions <=2 lines, above bottom 25%",
+      "status": "pass_sampled_visual_and_glyph_geometry",
+      "evidence": "All 21 cue midpoint frames inspected and each cue independently rendered with identical libass style; max two text bands, bounds <=1440px."
+    },
+    {
+      "criterion": "Low-confidence words corrected or reported",
+      "status": "pass_with_reported_uncertainty",
+      "evidence": "Official-subtitle wording corrections and provisional overlapping timings listed; listening not performed."
+    }
+  ],
+  "warning_decisions": [
+    {
+      "check": "caption_speed",
+      "start": 1.46,
+      "decision": "Retained as a documented test finding; fast/overlapping speech and ASR timing make these unsuitable for an unqualified readability pass. No content shortened solely to suppress QC warnings."
+    },
+    {
+      "check": "caption_speed",
+      "start": 3.1,
+      "decision": "Retained as a documented test finding; fast/overlapping speech and ASR timing make these unsuitable for an unqualified readability pass. No content shortened solely to suppress QC warnings."
+    },
+    {
+      "check": "caption_speed",
+      "start": 3.92,
+      "decision": "Retained as a documented test finding; fast/overlapping speech and ASR timing make these unsuitable for an unqualified readability pass. No content shortened solely to suppress QC warnings."
+    },
+    {
+      "check": "caption_speed",
+      "start": 10.3,
+      "decision": "Retained as a documented test finding; fast/overlapping speech and ASR timing make these unsuitable for an unqualified readability pass. No content shortened solely to suppress QC warnings."
+    },
+    {
+      "check": "caption_speed",
+      "start": 14.36,
+      "decision": "Retained as a documented test finding; fast/overlapping speech and ASR timing make these unsuitable for an unqualified readability pass. No content shortened solely to suppress QC warnings."
+    },
+    {
+      "check": "caption_speed",
+      "start": 15.24,
+      "decision": "Retained as a documented test finding; fast/overlapping speech and ASR timing make these unsuitable for an unqualified readability pass. No content shortened solely to suppress QC warnings."
+    },
+    {
+      "check": "caption_duration",
+      "start": 15.24,
+      "decision": "Retained as a documented test finding; fast/overlapping speech and ASR timing make these unsuitable for an unqualified readability pass. No content shortened solely to suppress QC warnings."
+    },
+    {
+      "check": "caption_speed",
+      "start": 15.62,
+      "decision": "Retained as a documented test finding; fast/overlapping speech and ASR timing make these unsuitable for an unqualified readability pass. No content shortened solely to suppress QC warnings."
+    },
+    {
+      "check": "caption_speed",
+      "start": 16.623,
+      "decision": "Retained as a documented test finding; fast/overlapping speech and ASR timing make these unsuitable for an unqualified readability pass. No content shortened solely to suppress QC warnings."
+    },
+    {
+      "check": "caption_speed",
+      "start": 17.503,
+      "decision": "Retained as a documented test finding; fast/overlapping speech and ASR timing make these unsuitable for an unqualified readability pass. No content shortened solely to suppress QC warnings."
+    },
+    {
+      "check": "caption_speed",
+      "start": 18.184,
+      "decision": "Retained as a documented test finding; fast/overlapping speech and ASR timing make these unsuitable for an unqualified readability pass. No content shortened solely to suppress QC warnings."
+    },
+    {
+      "check": "caption_duration",
+      "start": 18.184,
+      "decision": "Retained as a documented test finding; fast/overlapping speech and ASR timing make these unsuitable for an unqualified readability pass. No content shortened solely to suppress QC warnings."
+    }
+  ],
+  "compose": {
+    "output": "vertical-clip.mp4",
+    "rendered_scenes": [
+      "scene-10"
+    ],
+    "reused_scenes": [
+      "scene-01",
+      "scene-02",
+      "scene-03",
+      "scene-04",
+      "scene-05",
+      "scene-06",
+      "scene-07",
+      "scene-08",
+      "scene-09",
+      "scene-11"
+    ],
+    "snapped_scenes": [],
+    "tone_mapped_scenes": [],
+    "warnings": [],
+    "technical_pass": true,
+    "visual_review": "not_performed",
+    "listening_review": "not_performed"
+  },
+  "output_sha256": "b00b6693c850cf583ea8cd2b224137b69b8b65028bd4de02cd661913938d38ca",
+  "tests": {
+    "run": 105,
+    "passed": 104,
+    "skipped": 1,
+    "skip_reason": "Playwright with Chromium unavailable"
+  },
+  "scope": "Local artifacts and committed text evidence only. No public media upload, paid provider, merge or release."
+}
