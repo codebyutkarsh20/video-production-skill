@@ -29,6 +29,18 @@ Map the current creative need to a route:
 | Narration and sound | Supplied recording, microphone access, installed speech engine/model, audio editor | TTS service, local voice model or licensed sound library |
 | Captions and localization | Timed script, transcription/alignment and translation capabilities | Alignment/transcription tool or language reviewer |
 
+Route to a specialist when it fits and is available, rather than rebuilding it here. `doctor` covers this helper only; check each tool separately. These are pointers from reading each project on 31 October 2026, not integrations tested with this skill; recheck licences and terms before use.
+
+| Job | Worth checking | Note |
+|---|---|---|
+| HTML or CSS motion graphics | HyperFrames | Apache-2.0 |
+| React-based video | Remotion | Companies may need a paid licence |
+| Maths and science animation | Manim | Community edition is MIT |
+| An editable professional timeline | DaVinci Resolve MCP | MIT server; needs Resolve installed |
+| Local narration | Kokoro, Piper | Check model and engine licences separately; Piper's engine is GPL-3.0 |
+
+Bring a specialist's export back as a scene so captions, loudness and QC still run on the whole video.
+
 This is a discovery map, not a supported-provider list. Use current official documentation before recommending specific services, plans, voice catalogs, hardware requirements or setup commands. Existing connectors and purpose-built tools take priority when sufficient. Do not claim a connection or license exists until checked.
 
 Present only additions relevant to the quality gap. For each recommendation explain: the visible/audible improvement, availability here, required input/account/install, likely local versus external processing, known cost or unresolved pricing, and a useful alternative. Rank by expected benefit, effort and constraints; a paid provider is not automatically better. Ask for consequential choices, not a catalog of integrations.

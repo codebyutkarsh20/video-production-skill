@@ -2,6 +2,7 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
+import re
 import tempfile
 import unittest
 import zipfile
@@ -15,6 +16,18 @@ def load(name,path):
 
 
 class ReleaseTests(unittest.TestCase):
+    def test_skill_references_exist_and_description_stays_a_single_scalar(self):
+        skill=ROOT/'skills/video-production/SKILL.md';text=skill.read_text()
+        description=next(x for x in text.splitlines() if x.startswith('description:')).removeprefix('description:').strip()
+        self.assertTrue(': ' not in description or description[0] in '\'"',description[:40])
+        self.assertLessEqual(len(description),1024)
+        for link in re.findall(r'\]\((references/[^)]+)\)',text):self.assertTrue((skill.parent/link).is_file(),link)
+
+    def test_repeatable_cases_are_not_presented_as_results(self):
+        cases=json.loads((ROOT/'evals/cases.json').read_text())
+        self.assertEqual(cases['status'],'not_yet_run')
+        self.assertTrue(all(c['prompt'] and c['pass_when'] for c in cases['cases']))
+
     def test_package_is_self_contained_and_excludes_private_artifacts(self):
         release=load('release',ROOT/'scripts/package_release.py')
         with tempfile.TemporaryDirectory() as tmp:
@@ -33,8 +46,8 @@ class ReleaseTests(unittest.TestCase):
             (root/'artifacts').mkdir();(root/'artifacts/private.txt').write_text('private')
             (root/'.env').write_text('SECRET=private')
             result=release.build(root)
-            self.assertEqual(Path(result['archive']).name,'video-production-0.2.0.zip')
-            self.assertEqual(Path(result['skill_archive']).name,'video-production-skill-0.2.0.zip')
+            self.assertEqual(Path(result['archive']).name,'video-production-0.3.0.zip')
+            self.assertEqual(Path(result['skill_archive']).name,'video-production-skill-0.3.0.zip')
             with zipfile.ZipFile(result['archive']) as z:
                 names=z.namelist()
                 self.assertIn('video-production/scripts/package_release.py',names)
@@ -84,6 +97,18 @@ class ShowcaseCacheTests(unittest.TestCase):
             for state in [[],None,{'input_key':self.showcase.narration_key('Voice A',148),'artifacts':None}]:
                 (out/'timings.json').write_text(json.dumps(state))
                 self.assertFalse(self.showcase.audio_cache_valid(out,'Voice A',148))
+
+
+    def test_narration_cues_wrap_to_readable_lines(self):
+        speech=' '.join(s[3] for s in self.showcase.SCENES)
+        for part in self.showcase.chunks(speech):
+            wrapped=self.showcase.caption_lines(part)
+            self.assertEqual(wrapped.replace('\n',' '),part)
+            self.assertLessEqual(max(map(len,wrapped.split('\n'))),42,wrapped)
+            self.assertLessEqual(wrapped.count('\n'),1,wrapped)
+
+    def test_a_caption_change_invalidates_cached_narration(self):
+        self.assertEqual(self.showcase.AUDIO_PIPELINE,5)
 
 
 if __name__=='__main__':unittest.main()

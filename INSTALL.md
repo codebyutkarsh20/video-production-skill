@@ -4,7 +4,7 @@ Source: [codebyutkarsh20/video-production-skill](https://github.com/codebyutkars
 
 ## Standard installer
 
-With Node.js **22.20 or newer**, run from the project where you want the skill:
+With Node.js (tested on 22.18 and 24.19), run from the project where you want the skill:
 
 ```sh
 npx skills add codebyutkarsh20/video-production-skill --skill video-production
@@ -65,7 +65,7 @@ Run the helper from the installed folder:
 python3 /path/to/video-production/scripts/video_tools.py doctor
 ```
 
-Planning works without a renderer. The bundled media helper needs Python 3.10+ and FFmpeg/ffprobe with the reported capabilities. Install optional dependencies only for the route you use; the host chooses its supported browser, TTS or generation tools.
+Planning works without a renderer. The bundled media helper needs Python 3.10+ and FFmpeg/ffprobe with the reported capabilities. Footage reading and face tracking also need [uv](https://docs.astral.sh/uv/), which fetches each script's pinned dependencies on first run; a transcription model downloads only after you approve it. Install optional dependencies only for the route you use; the host chooses its supported browser, TTS or generation tools.
 
 Example invocation:
 

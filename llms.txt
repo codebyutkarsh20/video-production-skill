@@ -10,6 +10,9 @@
 ## Conditional references
 - [Creative direction and capability discovery](https://raw.githubusercontent.com/codebyutkarsh20/video-production-skill/main/skills/video-production/references/creative-direction.md): Visual style, voice auditions, missing assets and useful tool connections.
 - [Project/output contract](https://raw.githubusercontent.com/codebyutkarsh20/video-production-skill/main/skills/video-production/references/project-contract.md): Canonical manifest and actual deliverables.
+- [Footage editing](https://raw.githubusercontent.com/codebyutkarsh20/video-production-skill/main/skills/video-production/references/footage-editing.md): Step-by-step cuts from recorded footage with local transcription, captions, reframing and checks.
+- [Craft](https://raw.githubusercontent.com/codebyutkarsh20/video-production-skill/main/skills/video-production/references/craft.md): Cut padding, hooks, pacing, captions, sound and platform starting points.
+- [Named looks](https://raw.githubusercontent.com/codebyutkarsh20/video-production-skill/main/skills/video-production/references/looks.md): Untested starting points for visual style.
 - [Screen workflows](https://raw.githubusercontent.com/codebyutkarsh20/video-production-skill/main/skills/video-production/references/screen-workflows.md): Actual app recordings.
 - [Local composition](https://raw.githubusercontent.com/codebyutkarsh20/video-production-skill/main/skills/video-production/references/local-production.md): Motion graphics and existing footage.
 - [Generated media](https://raw.githubusercontent.com/codebyutkarsh20/video-production-skill/main/skills/video-production/references/generated-media.md): Provider-dependent routes and adapter contract.
@@ -17,5 +20,6 @@
 
 ## Contributors and evidence
 - [Contributing](https://github.com/codebyutkarsh20/video-production-skill/blob/main/CONTRIBUTING.md): Add routes, providers, templates or regression cases.
+- [Repeatable agent cases](https://github.com/codebyutkarsh20/video-production-skill/blob/main/evals/README.md): Prompts and pass conditions; not yet run.
 - [Release evidence](https://github.com/codebyutkarsh20/video-production-skill/blob/main/docs/release-evidence.md): Executed checks and unverified limits.
 - [Releases](https://github.com/codebyutkarsh20/video-production-skill/releases): Versioned source/skill downloads, checksums and preview media.

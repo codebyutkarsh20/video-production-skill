@@ -7,13 +7,13 @@ import zipfile
 ROOT=Path(__file__).resolve().parents[1]
 FILES=['README.md','INSTALL.md','AGENTS.md','llms.txt','LICENSE','skills/video-production/LICENSE','CONTRIBUTING.md','ASSET-CREDITS.md','CHANGELOG.md','requirements-examples.txt','requirements-tts.txt','docs/assets/preview.jpg',
        'docs/release-evidence.md','docs/evaluations.md']
-TREES=['skills','tests','examples','scripts','.github']
+TREES=['skills','tests','examples','scripts','evals','.github']
 SUFFIXES={'.md','.py','.yaml','.yml','.html','.cjs','.txt','.json'}
 
 
 def build(root=ROOT):
     root=Path(root).resolve();out=root/'dist';out.mkdir(exist_ok=True)
-    dest=out/'video-production-0.2.0.zip';entries=[]
+    dest=out/'video-production-0.3.0.zip';entries=[]
     for name in FILES:
         p=root/name
         if not p.is_file(): raise ValueError(f'Missing release input: {name}')
@@ -40,7 +40,7 @@ def build(root=ROOT):
     skill_root=root/'skills/video-production'
     if not (skill_root/'SKILL.md').is_file():raise ValueError('Missing installable SKILL.md')
     skill_entries=[(p,'video-production/'+str(p.relative_to(skill_root))) for p in entries if p.is_relative_to(skill_root)]
-    skill_dest=out/'video-production-skill-0.2.0.zip'
+    skill_dest=out/'video-production-skill-0.3.0.zip'
     skill_digest=write_archive(skill_dest,skill_entries)
     return {'archive':str(dest),'files':len(entries),'sha256':digest,
             'skill_archive':str(skill_dest),'skill_files':len(skill_entries),'skill_sha256':skill_digest}

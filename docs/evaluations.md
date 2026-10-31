@@ -26,3 +26,7 @@ Read-only independent baseline probe used the existing 0.1.0 skill with a vague 
 A fresh independent probe with the revised skill recommended a concrete problem/action/payoff story, explained laptop capture/graphics/editing versus optional external visuals, offered local speech/service/human recording routes, and retained the narrated master as the goal. A separate storyboard-only scenario returned three scenes without installations or generation. Review exposed ambiguity around preview length and audition checkpoints; wording was clarified to keep excerpts shorter than the master and avoid an automatic audition approval gate. Those final wording clarifications were inspected, not independently rerun.
 
 These are single-run qualitative probes, not replicated comparisons or evidence of provider/audio quality. No new provider was connected, no paid call made, and no new video generated for this instruction revision. All 31 existing tests passed with no skips; skill validation, diff whitespace checks, distribution building and inclusion of the new reference in both archives passed.
+
+## 0.3.0 status — 31 October 2026
+
+No fresh-context agent run has been made against the 0.3.0 instructions. The results above describe earlier versions. Repeatable cases and trigger phrases are in [`evals/`](../evals/README.md), marked not yet run.

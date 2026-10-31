@@ -1,9 +1,9 @@
 ---
 name: video-production
-description: Use when a user requests a video brief, product walkthrough, explainer, narrated edit, generated video, captioned cutdown, or repair of an existing video or failed render.
+description: 'Plan, edit, generate, caption and repair videos. Use whenever the user wants to make or change a video or clip: explainers, product demos, screen walkthroughs, ads, talking-head or podcast edits, reels, TikToks and YouTube Shorts, removing silences or filler words, trimming, reframing to vertical, adding subtitles or narration, or fixing a failed render, even if they never say "video production". Also use for a brief or storyboard with no render.'
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
 ---
 
 # Video Production
@@ -29,8 +29,9 @@ When voice, visuals or tools need choosing, read [creative direction and capabil
 Check actual tools, assets and authorized access before promising output. `python3 scripts/video_tools.py doctor` checks local executables; host browser and provider availability require their own checks. Scripts are relative to this skill folder, not the user's project.
 
 Read only the relevant reference:
+- Cutting recorded footage (interviews, podcasts, reels, cutdowns, vertical reframes): [footage editing](references/footage-editing.md), with [craft](references/craft.md) for cut, pacing, caption and sound decisions.
 - Actual UI walkthrough: [screen workflows](references/screen-workflows.md).
-- Motion graphics or editing existing media: [local production](references/local-production.md).
+- Motion graphics, or a style to choose: [local production](references/local-production.md), with [named looks](references/looks.md) when no brand sets the style.
 - Generated shots, avatars or hybrid production: [generated media](references/generated-media.md).
 - Failed jobs or defective media: [repair](references/repair.md).
 
@@ -50,7 +51,7 @@ Render a representative segment early when the contract calls for one. Stop at a
 
 ## 4. Verify and deliver
 
-Run full decode and format checks, check caption bounds, inspect representative scene and transition frames, and listen to narration when the environment permits. The local helper checks metadata, full decoding and SRT timing; it cannot judge beauty, factual truth, caption-to-speech alignment or voice quality.
+Run `verify --qc`, read `review` images of the opening, ending and cuts, run `speech-check` when captions follow speech, and listen to narration when the environment permits. These tools measure decoding, black and frozen picture, silence, loudness, caption limits and caption-to-speech match, and they show sampled frames with waveforms. A speech-check is a warning signal, since transcription errs too. Beauty, factual truth, motion feel and voice quality stay with a person.
 
 Report four distinct states: **rendered**, **technically checked**, **visually/listening reviewed** (state coverage), and **user approved**. Never infer one from another. When listening or visual inspection is unavailable, identify that specific remaining review.
 
@@ -58,4 +59,13 @@ Deliver the requested media, requested captions/variants, editable source and co
 
 ## Local helpers
 
-Run `python3 scripts/video_tools.py --help`. `check` validates local project inputs, `compose` assembles video clips with resumable scene caching, and `verify` checks actual output. They accept local relative assets inside the manifest's directory. This helper is one supported route; choose another tool when the request needs richer composition.
+`scripts/video_tools.py` uses only Python and FFmpeg. Run `--help` for options.
+
+| Need | Command |
+|---|---|
+| What works here | `doctor`, reported by route |
+| Read footage | `pack` (transcript), `timeline` (filmstrip, waveform and words), `shots` |
+| Build an edit | `cuts`, `captions`, `check`, `compose` (crop, stills, music ducking, loudness, burned captions) |
+| Check an export | `verify --qc`, `review`, `speech-check` |
+
+`scripts/transcribe.py` and `scripts/reframe.py` run with `uv run` and declare their own dependencies; `scripts/screen_capture.cjs` extends a host Playwright. Assets stay inside the manifest's directory or an explicit `--source-root`. Choose another tool when the request needs richer composition.

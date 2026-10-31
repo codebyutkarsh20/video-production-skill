@@ -6,6 +6,10 @@ Prepare a shot list and continuity references: subject, setting, action, camera,
 
 Test the highest-risk representative shot before a batch: recognizable product, recurring character, camera movement or lip sync. Inspect real output. Quality defects may need a revised shot, approved alternative technique or an explicit limit. Limit retries by the user's time/cost contract; “retry until perfect” is not a budget.
 
+When a product or character must stay recognizable and the tool supports it, approve stills first and pin them as the shot's first and last frames, so generation only fills the motion between.
+
+Before delivering generated or manipulated media, raise disclosure. EU AI Act Article 50, in application from 2 August 2026, sets transparency duties for some synthetic media and deepfakes, and platforms have their own labelling rules. Tell the user which shots are generated, record them in `provider_jobs`, and recommend they check what applies to their audience and take legal advice where it matters. This is a prompt to check, not legal advice.
+
 ## Adapter contract for contributors
 
 Document:

@@ -180,7 +180,7 @@ def frame(scene_index,t,total_t,cues):
             text(d,(x+20,yy+28),['01','02','03'][i],36,MINT if i==0 else INK,True)
             for j in range(3):rounded(d,(x+22,yy+110+j*38,x+175,yy+126+j*38), '#4d7274' if i==0 else '#9fbcad',5)
             text(d,(x,yy+323),tt,21,INK,True)
-        rounded(d,(84,753,722,830),INK,18);text(d,(115,773),'VIDEO PRODUCTION  /  v0.1',30,CREAM,True)
+        rounded(d,(84,753,722,830),INK,18);text(d,(115,773),'VIDEO PRODUCTION',30,CREAM,True)
     # Readable phrase captions, kept below the meaningful composition.
     cue=next((c for c in cues if c['start']<=total_t<c['end']),None)
     if cue:
@@ -198,12 +198,22 @@ def timestamp(v):
     return f'{h:02}:{m:02}:{s:02},{ms:03}'
 
 
+AUDIO_PIPELINE=5
+
+
 def chunks(sentence):
     return [part.strip() for part in re.split(r'(?<=[.!?])\s+',sentence) if part.strip()]
 
 
+def caption_lines(part,width=42):
+    if len(part)<=width:return part
+    words=part.split()
+    splits=[(' '.join(words[:i]),' '.join(words[i:])) for i in range(1,len(words))]
+    return '\n'.join(min(splits,key=lambda x:max(map(len,x))))
+
+
 def narration_key(voice,rate):
-    data={'voice':voice,'rate':rate,'speech_and_slots':[(s[0],s[3]) for s in SCENES],'audio_pipeline':4}
+    data={'voice':voice,'rate':rate,'speech_and_slots':[(s[0],s[3]) for s in SCENES],'audio_pipeline':AUDIO_PIPELINE}
     if voice.startswith('piper:'):
         model=Path(voice.removeprefix('piper:'))
         data['model_sha256']=hashlib.sha256(model.read_bytes()).hexdigest()
@@ -258,7 +268,7 @@ def prepare_audio(out,voice,rate):
             subprocess.run(['ffmpeg','-y','-v','error','-i',str(generated),'-ar','48000','-ac','1','-c:a','pcm_s16le',str(wav)],check=True)
             with wave.open(str(wav)) as w:raw=w.readframes(w.getnframes());seconds=w.getnframes()/w.getframerate()
             start=cursor+.25+len(scene_pcm)/(sample_rate*2)
-            scene_cues.append({'start':start,'end':start+seconds,'text':part})
+            scene_cues.append({'start':start,'end':start+seconds,'text':caption_lines(part)})
             scene_pcm.extend(raw)
             if j<len(parts)-1:scene_pcm.extend(bytes(round(.12*sample_rate)*2))
         raw=bytes(scene_pcm);seconds=len(raw)/(sample_rate*2)

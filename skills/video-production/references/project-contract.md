@@ -22,15 +22,35 @@ Minimal local composition contract (version 1):
 }
 ```
 
-All local media references resolve within the project directory, including symlink targets. The helper accepts video clips (not still images or remote URLs), scales them to fit with padding and normalizes FPS/audio. Clip durations must align to whole output frames and fit the source; input stills must first be rendered to clips. `source_audio` defaults to false. Each chunk has a normalized stereo track, including silence when source audio is disabled.
+All local media references resolve within the project directory, including symlink targets. `--source-root` adds an explicit folder that relative paths and symlinks may reach; absolute paths and remote URLs stay refused. Scene durations snap to whole output frames and must fit the source. `fps` is a number or a fraction such as `"30000/1001"`. `source_audio` defaults to false, and each chunk has a normalized stereo track with hard cuts softened by short fades. HDR sources are tone-mapped to BT.709 when FFmpeg has `zscale`, and all output is tagged BT.709.
 
-Optional `narration` and `captions` fields are relative paths with asset provenance entries. Narration replaces source audio; it is padded to the timeline and refused if too long. Music mixing, animation and burned-in captions belong in the composition tool, not this simple clip assembler. For `audio: none`, final export removes audio. Required audio currently means a stream exists; check audibility separately.
+Optional scene fields:
+
+| Field | Meaning |
+|---|---|
+| `fit` | `contain` (default, pads to fit) or `cover` (fills the frame by cropping); compose warns when `contain` leaves little picture |
+| `focus_x`, `focus_y` | 0–1 position of the `cover` crop window |
+| `crop` | `{x, y, w, h}` in source pixels, applied first; use a tighter rect for a punch-in |
+
+A still image scene (png, jpg, webp, bmp, tif) is a scene with a `duration` and no audio.
+
+Optional top-level fields, each a path with an asset provenance entry where it names a file:
+
+| Field | Meaning |
+|---|---|
+| `narration` | Replaces source audio; padded to the timeline and refused if too long |
+| `captions` | SRT on the output timeline |
+| `burn_captions` | `{style, font}`, drawn last; style is `bold-center`, `clean-lower` or `minimal`; needs `captions` and FFmpeg's `ass` filter |
+| `music` | `{path, gain_db, duck}`; loops to length and ducks under speech unless `duck` is false |
+| `loudness` | `{target, true_peak}`; two-pass normalization of the final mix |
+
+For `audio: none`, final export removes audio. Layered animation, overlays and animated zooms belong in a composition tool. Required audio means a stream exists; `verify --qc` reports silence.
 
 Commands, run with the skill script's resolved location:
 ```
 python3 video_tools.py check /path/to/project.json
 python3 video_tools.py compose /path/to/project.json /path/to/output.mp4
-python3 video_tools.py verify /path/to/output.mp4 --manifest /path/to/project.json --report /path/to/report.json
+python3 video_tools.py verify /path/to/output.mp4 --manifest /path/to/project.json --qc --loudness-target -14 --report /path/to/report.json
 ```
 
 Composition caches by source bytes, scene settings, output spec, tool version and pipeline version. A partial file is not promoted to a final artifact. Existing output requires `--overwrite`; original inputs remain protected. Cache files are disposable, source assets are not. Retain the cache only as needed; it may contain private footage.
@@ -46,4 +66,4 @@ For richer pipelines, extend state with `brief`, `style`, `facts`, `provider_job
 | Production | Requested master/variants/captions, editable source, provenance and actual validation evidence |
 | Repair | Repaired artifact when possible, specific changes/checks and unresolved limits |
 
-Use explicit review entries: method, timestamp, scope and findings. `visual: not_performed` and `listening: not_performed` are honest defaults. The helper's metadata/decoder success never sets human-review fields. Publish only after the user authorizes that external action.
+Use explicit review entries: method, timestamp, scope and findings. `visual: not_performed` and `listening: not_performed` are honest defaults. The helper's measurements and review images never set human-review fields. Publish only after the user authorizes that external action.
