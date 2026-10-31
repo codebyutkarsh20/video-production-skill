@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.3.0 — unreleased — local footage editing and automated checks
+## 0.3.0 — 2026-10-31 — local editing, automated checks and agent contributions
 
 **Fixed**
 

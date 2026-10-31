@@ -4,7 +4,7 @@
 
 An agent skill for turning briefs, interfaces and footage into reviewable videos. It covers planning, production, revision and repair, with clear output contracts and honest support levels. Agents cannot watch or hear video, so it turns footage into transcripts, filmstrips and measurements they can read, locally and without an API key.
 
-**Version 0.3.0 — local footage editing and automated checks.** Use it with a skill-capable coding agent and the production tools available in your environment. Original code/instructions are MIT licensed; contributions are welcome.
+**Version 0.3.0 — local editing, automated checks and agent-led contributions.** Use it with a skill-capable coding agent and the production tools available in your environment. Original code/instructions are MIT licensed; contributions are welcome.
 
 ## Quick install
 

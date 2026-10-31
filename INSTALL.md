@@ -25,10 +25,10 @@ npx skills add codebyutkarsh20/video-production-skill --list
 
 The installer may use a shared `.agents/skills` location and agent-specific links. Exact discovery/reload behavior belongs to your host. Use `--copy` where symlinks are unsuitable. Installing instructions does not install FFmpeg, browser tools, models or paid accounts.
 
-For the fixed v0.2.0 source rather than the changing default branch:
+For the fixed v0.3.0 source rather than the changing default branch:
 
 ```sh
-npx skills add https://github.com/codebyutkarsh20/video-production-skill/tree/v0.2.0/skills/video-production --yes
+npx skills add https://github.com/codebyutkarsh20/video-production-skill/tree/v0.3.0/skills/video-production --yes
 ```
 
 ## Ask your agent to install it
@@ -45,7 +45,7 @@ That installer normally uses the user's Codex skills directory. If you want proj
 
 ## Download without Node.js
 
-Download [the v0.2.0 standalone skill ZIP](https://github.com/codebyutkarsh20/video-production-skill/releases/download/v0.2.0/video-production-skill-0.2.0.zip) and its [SHA-256 checksum](https://github.com/codebyutkarsh20/video-production-skill/releases/download/v0.2.0/video-production-skill-0.2.0.zip.sha256), or browse [the latest release](https://github.com/codebyutkarsh20/video-production-skill/releases/latest). Extract the `video-production` folder into the skill directory supported by your host. Preserve the complete folder: SKILL.md, LICENSE, references, scripts and optional agent metadata.
+Download [the v0.3.0 standalone skill ZIP](https://github.com/codebyutkarsh20/video-production-skill/releases/download/v0.3.0/video-production-skill-0.3.0.zip) and its [SHA-256 checksum](https://github.com/codebyutkarsh20/video-production-skill/releases/download/v0.3.0/video-production-skill-0.3.0.zip.sha256), or browse [the latest release](https://github.com/codebyutkarsh20/video-production-skill/releases/latest). Extract the `video-production` folder into the skill directory supported by your host. Preserve the complete folder: SKILL.md, LICENSE, references, scripts and optional agent metadata.
 
 Common locations:
 

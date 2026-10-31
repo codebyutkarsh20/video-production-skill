@@ -2,6 +2,10 @@
 
 The owner approved implementation and subsequently authorized public GitHub publication on 29 October 2026. The original local verification receipt follows; public installation and CI evidence are recorded separately. No external video-generation provider has been activated.
 
+## v0.3.0 publication candidate — 31 October 2026
+
+The owner explicitly authorized pushing and releasing the agent feedback workflow so external installations receive it. This candidate includes the prepared local editing/QC helpers, supervised evaluation receipt and agent contribution instructions. The installed version and source/standalone archive names are 0.3.0; fixed install and download links target v0.3.0. Prior working receipts below describe evidence at their execution time, not the final publication state. GitHub release notes record the final published commit, CI and artifact verification. No new provider integration, private media upload or paid call is part of this publication.
+
 ## v0.3.0 working evidence — 31 October 2026 (not released)
 
 **Agent contribution instruction update — local only:** the installed entry point now routes concrete findings to an agent-led upstream issue/PR workflow with scoped user authorization. A baseline and a fresh revised-skill evaluator exercised read-only decisions; see [the scenario evidence](evaluations.md#agent-led-contribution-revision--31-october-2026). No GitHub submission or cross-harness integration was executed. The local unittest run after this instruction change ran 105 tests: 104 passed and the Playwright/Chromium cursor test was skipped. Skill format validation passed. Rendering/narration code and cache keys were unchanged.
